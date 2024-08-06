@@ -14,7 +14,7 @@ export default function LoginPage() {
 }
 
 const LoginPageStyle = styled.div`
-  background: #2996d9;
+  background: url("/img/fond.webp");
   height: 100vh;
   background-size: cover;
   overflow-y: hidden;
@@ -25,9 +25,10 @@ const LoginPageStyle = styled.div`
     width: 65%;
     height: 70vh;
     position: relative;
-    margin-left: 300px;
+    margin-left: 320px;
     margin-top: 150px;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     overflow: hidden;
 
     display: grid;

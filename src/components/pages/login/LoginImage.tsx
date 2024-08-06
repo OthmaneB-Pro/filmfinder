@@ -1,16 +1,17 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export default function LoginImage() {
   return (
-    <LoginImageStyled><img src="/img/elementaire.webp" alt="Elementaire" /></LoginImageStyled>
-  )
+    <LoginImageStyled>
+      <img src="/img/elementaire.webp" alt="Elementaire" />
+    </LoginImageStyled>
+  );
 }
 
 const LoginImageStyled = styled.div`
-    img{
+  img {
     position: absolute;
     width: 832px;
     height: 680px;
-    }
-    background-color: blue;
-    `
+  }
+`;
