@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "../../reusable-ui/Logo";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
@@ -28,10 +29,11 @@ export default function LoginForm() {
 
   return (
     <FormulaireStyled>
-      <h1>Bienvenue chez FilmFinder</h1>
+      <h1>Bienvenue chez <Logo/> </h1>
       <hr />
+      
       <h1>Se connecter</h1>
-      <hr />
+      
       <form action="submit">
         <input
           type="text"
@@ -40,7 +42,7 @@ export default function LoginForm() {
           placeholder="Nom"
           onChange={handleChange}
           required
-        ></input>
+        />
 
         <input
           type="password"
@@ -55,12 +57,7 @@ export default function LoginForm() {
         <hr/>
       </form>
 
-      <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
-          arcu venenatis, ultrices libero eget, tincidunt erat. Quisque
-          scelerisque dui at magna volutpat, in sollicitudin mi vehicula. Nullam
-          vehicula lectus at lacus venenatis, et venenatis est accumsan.
-        </span>
+      
     </FormulaireStyled>
   );
 }
