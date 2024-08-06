@@ -1,9 +1,10 @@
+import LoginPage from "./components/pages/login/LoginPage";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <h1>FilmFinder !</h1>
+       <LoginPage/>
       </header>
     </div>
   );
