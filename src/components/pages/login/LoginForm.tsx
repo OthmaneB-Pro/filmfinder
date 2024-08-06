@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function LoginForm() {
@@ -6,6 +7,7 @@ export default function LoginForm() {
     username: "",
     password: "",
   });
+  const navigate = useNavigate()
 
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -13,7 +15,11 @@ export default function LoginForm() {
     event.preventDefault();
     console.log(formValues.username);
     console.log(formValues.password);
+
+    navigate(`/Main/${formValues.username}`)
   };
+
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
