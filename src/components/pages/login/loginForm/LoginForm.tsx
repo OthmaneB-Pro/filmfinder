@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import HeaderForm from "./loginForm/HeaderForm";
-import InputText from "../../reusable-ui/inputText";
-import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
-import FooterForm from "./loginForm/FooterForm";
+import HeaderForm from "./HeaderForm";
+import InputText from "../../../reusable-ui/inputText";
+import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
+import FooterForm from "./FooterForm";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
