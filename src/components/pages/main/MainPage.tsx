@@ -3,6 +3,7 @@ import Logo from "../../reusable-ui/Logo"
 import Navbar from "./Navbar"
 import Banner from "./Banner"
 import Categories from "./Categories"
+import PopularMovieAndSeries from "./PopularMovieAndSeries"
 
 export default function MainPage() {
    
@@ -15,7 +16,11 @@ export default function MainPage() {
         <p>- Catégories de Films -</p>
         <hr/>
         <Categories/>
+        <p className="popular-movies-and-series">- Films et Séries Populaire -</p>
+        <hr/>
+        <PopularMovieAndSeries/>
     </MainPageStyled>
+    
   )
 }
 
@@ -30,9 +35,13 @@ const MainPageStyled = styled.div`
         font-family: 'Arial AC';
         display: flex;
         justify-content: center;
+        margin-bottom: 50px;
     }
     hr{
         width: 50%;
+    }
+    .popular-movies-and-series{
+        margin-top: 150px;
     }
 
 `

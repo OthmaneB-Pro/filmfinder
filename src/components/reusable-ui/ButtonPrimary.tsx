@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 type ButtonType = {
     onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    label : string;
+    label : string | React.ReactNode;
+    className? : string;
 }
 
-export default function ButtonPrimary({onClick, label}: ButtonType) {
+export default function ButtonPrimary({onClick, label, className}: ButtonType) {
   return (
-    <ButtonStyled onClick={onClick}>{label}</ButtonStyled>
+    <ButtonStyled className={className} onClick={onClick}>{label}</ButtonStyled>
 
   )
 }
