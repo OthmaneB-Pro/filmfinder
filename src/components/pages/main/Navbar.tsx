@@ -37,6 +37,7 @@ const ListeStyled = styled.ul`
   top: 0;
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 
   li {
     float: left;
