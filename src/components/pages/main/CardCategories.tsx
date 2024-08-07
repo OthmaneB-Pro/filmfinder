@@ -19,6 +19,7 @@ const CardCategoriesStyled = styled.div`
   grid-template-rows: 3fr 1fr;
   overflow: hidden;
   border: 1px solid black;
+  margin-top: 30px;
 
   .image {
     width: 100%;
@@ -38,5 +39,9 @@ const CardCategoriesStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover{
+        color: #25a3dd;
+        background: white;
+    }
   }
 `;
