@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import HeaderForm from "./loginForm/HeaderForm";
-import InputText from "../../reusable-ui/InputText";
+import InputText from "../../reusable-ui/inputText";
+import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
@@ -40,8 +41,7 @@ export default function LoginForm() {
           onChange={handleChange}
           required
         />
-
-        <input
+        <InputText
           type="password"
           value={formValues.password}
           name="password"
@@ -49,7 +49,7 @@ export default function LoginForm() {
           onChange={handleChange}
           required
         />
-        <button onClick={handleClick}>Se Connecter</button>
+        <ButtonPrimary label="Se connecter" onClick={handleClick} />
         <p>Pas encore connecté ? S'inscrire</p>
         <hr />
       </form>
@@ -63,22 +63,6 @@ const FormulaireStyled = styled.div`
   align-items: center;
   font-family: "Open Sans";
 
-  
-  button {
-    padding: 10px;
-    width: 335px;
-    border-radius: 5px;
-    background: #2996d9;
-    border-color: #2996d9;
-    color: white;
-    cursor: pointer;
-
-    &:hover {
-      background-color: white;
-      color: #2996d9;
-      transition: 0.5s;
-    }
-  }
   span {
     width: 350px;
     text-align: center;
