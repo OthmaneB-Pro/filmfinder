@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../../reusable-ui/Logo";
+import HeaderForm from "./loginForm/HeaderForm";
+import InputText from "../../reusable-ui/InputText";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
     username: "",
     password: "",
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -17,9 +18,8 @@ export default function LoginForm() {
     console.log(formValues.username);
     console.log(formValues.password);
 
-    navigate(`/Main/${formValues.username}`)
+    navigate(`/Main/${formValues.username}`);
   };
-
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -29,13 +29,10 @@ export default function LoginForm() {
 
   return (
     <FormulaireStyled>
-      <h1>Bienvenue chez <Logo/> </h1>
-      <hr />
-      
-      <h1>Se connecter</h1>
-      
+      <HeaderForm />
+
       <form action="submit">
-        <input
+        <InputText
           type="text"
           value={formValues.username}
           name="username"
@@ -54,10 +51,8 @@ export default function LoginForm() {
         />
         <button onClick={handleClick}>Se Connecter</button>
         <p>Pas encore connecté ? S'inscrire</p>
-        <hr/>
+        <hr />
       </form>
-
-      
     </FormulaireStyled>
   );
 }
@@ -67,21 +62,8 @@ const FormulaireStyled = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans";
-  h1 {
-    padding: 10px;
-    border-radius: 5px;
-  }
-  hr {
-    width: 250px;
-    margin-bottom: 30px;
-  }
-  input {
-    display: flex;
-    margin-bottom: 30px;
-    padding: 10px;
-    width: 310px;
-    border-radius: 5px;
-  }
+
+  
   button {
     padding: 10px;
     width: 335px;
@@ -96,10 +78,9 @@ const FormulaireStyled = styled.div`
       color: #2996d9;
       transition: 0.5s;
     }
-    
   }
-  span{
-      width: 350px;
-      text-align: center;
-    }
+  span {
+    width: 350px;
+    text-align: center;
+  }
 `;
