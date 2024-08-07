@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Logo from "../../reusable-ui/Logo"
 import Navbar from "./Navbar"
 import Banner from "./Banner"
+import CardCategories from "./CardCategories"
 
 export default function MainPage() {
    
@@ -9,8 +10,10 @@ export default function MainPage() {
     <MainPageStyled>
         <Logo className="logo"/>
         <Navbar/>
-        <p>Découvrez vos films et series préférées</p>
+        <p>- Découvrez vos films et series préférées -</p>
         <Banner/>
+        <p>- Catégories de Films -</p>
+        <CardCategories/>
     </MainPageStyled>
   )
 }

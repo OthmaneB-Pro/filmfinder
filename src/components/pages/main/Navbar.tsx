@@ -38,6 +38,7 @@ const ListeStyled = styled.ul`
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  z-index: 1;
 
   li {
     float: left;
