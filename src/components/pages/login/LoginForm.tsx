@@ -4,6 +4,7 @@ import styled from "styled-components";
 import HeaderForm from "./loginForm/HeaderForm";
 import InputText from "../../reusable-ui/inputText";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
+import FooterForm from "./loginForm/FooterForm";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
@@ -50,8 +51,7 @@ export default function LoginForm() {
           required
         />
         <ButtonPrimary label="Se connecter" onClick={handleClick} />
-        <p>Pas encore connecté ? S'inscrire</p>
-        <hr />
+        <FooterForm />
       </form>
     </FormulaireStyled>
   );
@@ -62,9 +62,4 @@ const FormulaireStyled = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans";
-
-  span {
-    width: 350px;
-    text-align: center;
-  }
 `;

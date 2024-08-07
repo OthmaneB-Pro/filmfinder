@@ -7,8 +7,8 @@ export default function HeaderForm() {
       <h1>
         Bienvenue chez <Logo />
       </h1>
-      <hr/>
-      <br/>
+      <hr />
+      <br />
       <h1>Se connecter</h1>
     </HeaderFormStyled>
   );
