@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../../api/moviedb";
 
 type PopularMovieType = {
-  id : number;
-  title : string;
-  overview : string;
-  release : string;
-
-}
+  id: number;
+  title: string;
+  overview: string;
+  release_date: string;
+  poster_path: string;
+};
 
 export default function PopularMovieAndSeries() {
-  const [moviePopular, setMoviePopular] = useState<PopularMovieType[]>([])
+  const [moviePopular, setMoviePopular] = useState<PopularMovieType[]>([]);
 
   useEffect(() => {
     const loadPopular = async () => {
@@ -20,7 +20,10 @@ export default function PopularMovieAndSeries() {
         const populars = await GetPopularMovie();
         setMoviePopular(populars);
       } catch (err) {
-        console.error("Erreur lors du chargement des films et séries populaires", err);
+        console.error(
+          "Erreur lors du chargement des films et séries populaires",
+          err
+        );
       }
     };
 
@@ -30,7 +33,13 @@ export default function PopularMovieAndSeries() {
   return (
     <PopularStyled>
       {moviePopular.map((popular) => (
-        <CardPrimary key={popular.id} title={popular.title} label={popular.overview} date={popular.release} />
+        <CardPrimary
+          key={popular.id}
+          title={popular.title}
+          image={popular.poster_path}
+          label={popular.overview}
+          date={popular.release_date}
+        />
       ))}
     </PopularStyled>
   );

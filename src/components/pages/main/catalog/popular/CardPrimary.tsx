@@ -5,20 +5,25 @@ import { FaArrowRight } from "react-icons/fa";
 type CardPrimaryType = {
   title: string;
   label: string;
-  date : string;
-}
+  date: string;
+  image: string;
+};
 
-export default function CardPrimary({title, label, date} : CardPrimaryType) {
+export default function CardPrimary({
+  title,
+  label,
+  date,
+  image,
+}: CardPrimaryType) {
+  const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
   return (
     <CardPrimaryStyled>
       <div className="image">
-        <img src="/img/affiche-avenger-afinity.jpg" alt="categories" />
+        <img src={imageUrl} alt="categories" />
       </div>
       <div>
         <div className="title">{title}</div>
-        <div className="description">
-          {label}
-        </div>
+        <div className="description">{label}</div>
         <div className="card-footer">
           <span>{date}</span>
           <ButtonPrimary
@@ -34,27 +39,27 @@ export default function CardPrimary({title, label, date} : CardPrimaryType) {
 
 const CardPrimaryStyled = styled.div`
   width: 300px;
-  height: 400px;
+  height: 600px;
   position: relative;
   display: grid;
-  grid-template-rows: 2fr 3fr;
+  grid-template-rows: 2fr 1fr;
   overflow: hidden;
-  border: 1px solid black;
+  border: 3px solid black;
   margin-top: 30px;
   margin-left: 40px;
   padding: 10px;
 
   .image {
-    width: 100%;
     height: 100%;
     overflow: hidden;
     img {
       width: 100%;
-      height: 100%;
+      height: 380px;
       object-fit: cover;
     }
   }
   .title {
+    width: 300px;
     margin-bottom: 20px;
     font-size: 24px;
     display: flex;
@@ -63,6 +68,7 @@ const CardPrimaryStyled = styled.div`
     font-family: Caflisch Script, Adobe Poetica, Sanvito, cursive;
     color: #25a3dd;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
   }
   .card-button {

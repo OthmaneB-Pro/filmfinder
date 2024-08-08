@@ -1,16 +1,22 @@
 import styled from "styled-components";
 
 type CardCategoriesType = {
-  label : string;
-  href? : string;
-  image : string;
-}
+  label: string;
+  href?: string;
+  image: string;
+};
 
-export default function CardCategories({label, href, image} : CardCategoriesType) {
+export default function CardCategories({
+  label,
+  href,
+  image,
+}: CardCategoriesType) {
   return (
     <CardCategoriesStyled>
       <div className="image">
-       <a href={href} ><img src={image} alt="categories" /></a>
+        <a href={href}>
+          <img src={image} alt="categories" />
+        </a>
       </div>
       <div className="categories">{label}</div>
     </CardCategoriesStyled>
@@ -31,7 +37,7 @@ const CardCategoriesStyled = styled.div`
     overflow: hidden;
     img {
       width: 100%;
-      
+
       object-fit: cover;
     }
   }
@@ -43,9 +49,9 @@ const CardCategoriesStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    &:hover{
-        color: #25a3dd;
-        background: white;
+    &:hover {
+      color: #25a3dd;
+      background: white;
     }
   }
 `;

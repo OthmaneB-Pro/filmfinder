@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CardCategories from "./CardCategories";
 import { useContext, useEffect } from "react";
-import {  GetGenreMovie } from "../../../../../api/moviedb";
+import { GetGenreMovie } from "../../../../../api/moviedb";
 import { MoviesContext } from "../../../../../context/MoviesContext";
 
 export type GenreType = {
@@ -12,7 +12,7 @@ export type GenreType = {
 
 export default function Categories() {
   const { movieGenre, setMovieGenre } = useContext(MoviesContext);
-  
+
   useEffect(() => {
     const loadGenres = async () => {
       try {
