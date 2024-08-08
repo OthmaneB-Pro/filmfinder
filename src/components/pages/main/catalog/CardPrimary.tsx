@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
+import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import { FaArrowRight } from "react-icons/fa";
 
 export default function CardPrimary() {

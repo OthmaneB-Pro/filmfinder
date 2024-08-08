@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "../../../reusable-ui/Logo";
 import Navbar from "./Navbar";
 import TitleTextWithDivider from "../../../reusable-ui/TitleTextWithDivider";
