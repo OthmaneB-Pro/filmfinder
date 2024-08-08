@@ -4,6 +4,7 @@ import Navbar from "./Navbar"
 import Banner from "./Banner"
 import Categories from "./Categories"
 import PopularMovieAndSeries from "./PopularMovieAndSeries"
+import FooterMainPage from "./FooterMainPage"
 
 export default function MainPage() {
    
@@ -19,6 +20,7 @@ export default function MainPage() {
         <p className="popular-movies-and-series">- Films et Séries Populaire -</p>
         <hr/>
         <PopularMovieAndSeries/>
+        <FooterMainPage/>
     </MainPageStyled>
     
   )

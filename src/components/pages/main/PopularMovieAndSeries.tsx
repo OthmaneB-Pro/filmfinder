@@ -16,6 +16,7 @@ export default function PopularMovieAndSeries() {
 const PopularStyled = styled.div`
 margin-left: 60px;
 margin-right: 50px;
+margin-bottom: 150px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap : -10px;
