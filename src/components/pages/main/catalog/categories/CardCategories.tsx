@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 type CardCategoriesType = {
-  label? : string;
+  label : string;
   href? : string;
-  image? : string;
+  image : string;
 }
 
 export default function CardCategories({label, href, image} : CardCategoriesType) {
@@ -19,7 +19,7 @@ export default function CardCategories({label, href, image} : CardCategoriesType
 
 const CardCategoriesStyled = styled.div`
   width: 200px;
-  height: 200px;
+  height: 330px;
   position: relative;
   display: grid;
   grid-template-rows: 3fr 1fr;
@@ -28,12 +28,11 @@ const CardCategoriesStyled = styled.div`
   margin-top: 30px;
 
   .image {
-    width: 100%;
-    height: 100%;
+   
     overflow: hidden;
     img {
       width: 100%;
-      height: 100%;
+      
       object-fit: cover;
     }
   }
