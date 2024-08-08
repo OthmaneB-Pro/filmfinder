@@ -1,37 +1,30 @@
 import styled from "styled-components";
 import CardCategories from "./CardCategories";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { apiKey } from "../../../../../api/moviedb";
-import { genreImages } from "../../../../../data/genreImages";
+import { useContext, useEffect } from "react";
+import {  GetGenreMovie } from "../../../../../api/moviedb";
+import { MoviesContext } from "../../../../../context/MoviesContext";
 
-type GenreType = {
+export type GenreType = {
   id: number;
   name: string;
   image: string;
 };
 
 export default function Categories() {
-  const [movieGenre, setMovieGenre] = useState<GenreType[]>([]);
-
+  const { movieGenre, setMovieGenre } = useContext(MoviesContext);
+  
   useEffect(() => {
-    axios
-      .get("https://api.themoviedb.org/3/genre/movie/list?language=fr", {
-        params: {
-          api_key: apiKey,
-        },
-      })
-      .then((res) => {
-        const genresWithImages = res.data.genres.map((genre: GenreType) => ({
-          ...genre,
-          image: genreImages[genre.name],
-        }));
-        setMovieGenre(genresWithImages);
-      })
-      .catch((err) => {
-        console.error("Erreur dans la recuperation du genre des films", err);
-      });
-  }, []);
+    const loadGenres = async () => {
+      try {
+        const genres = await GetGenreMovie();
+        setMovieGenre(genres);
+      } catch (err) {
+        console.error("Erreur lors du chargement des genres", err);
+      }
+    };
+
+    loadGenres();
+  }, [setMovieGenre]);
   return (
     <ScrollableContainer>
       <CategoriesStyled>
@@ -54,17 +47,17 @@ const ScrollableContainer = styled.div`
   display: flex;
   padding-left: 130px;
   margin-top: 50px;
-  width: calc(93% - 130px); 
+  width: calc(93% - 130px);
 `;
 
 const CategoriesStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(19, 1fr);
   grid-gap: 10px;
-  min-width: 600px; 
-  
+  min-width: 600px;
+
   & > div {
-    flex: 0 0 calc(100% / 6); 
-    max-width: 200px; 
+    flex: 0 0 calc(100% / 6);
+    max-width: 200px;
   }
 `;

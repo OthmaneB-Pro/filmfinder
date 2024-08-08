@@ -1,5 +1,23 @@
-const apiKey = 'e2dbd2d92f4b2fcba7949c8debe60f64';
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMmRiZDJkOTJmNGIyZmNiYTc5NDljOGRlYmU2MGY2NCIsIm5iZiI6MTcyMzExMzAzOS42NTAwMjIsInN1YiI6IjY2YjA4YWM5ZGY5ZWVjMGQzNjBjZGVmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BYfGKJMsA6KW9eU2U-6ho6qcWMRd2B7Bps6I_N0umow'; // Remplacez par votre jeton réel
+import axios from "axios";
+import { genreImages } from "../data/genreImages";
+import { GenreType } from "../components/pages/main/catalog/categories/Categories";
 
+const apiKey = "e2dbd2d92f4b2fcba7949c8debe60f64";
 
-export {apiKey, token}
+export const GetGenreMovie = async () => {
+  try {
+    const res = await axios.get("https://api.themoviedb.org/3/genre/movie/list?language=fr", {
+      params: {
+        api_key: apiKey,
+      },
+    });
+    return res.data.genres.map((genre: GenreType) => ({
+        ...genre,
+        image: genreImages[genre.name],
+}));
+ } catch(err) {
+      console.error("Erreur dans la recuperation du genre des films", err);
+    };
+};
+
+export { apiKey };
