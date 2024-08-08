@@ -6,16 +6,27 @@ export default function CardPrimary() {
   return (
     <CardPrimaryStyled>
       <div className="image">
-          <img src="/img/affiche-avenger-afinity.jpg" alt="categories" />
+        <img src="/img/affiche-avenger-afinity.jpg" alt="categories" />
       </div>
       <div>
-      <div className="title">Avenger</div>
-      <div className="description">Les Avengers sont une équipe de super-héros issus des comics Marvel. Réunis par Nick Fury, ils se battent pour protéger la Terre contre des menaces globales. Leur formation initiale inclut Iron Man, Thor, Hulk, Captain America, Black Widow et Hawkeye. Ensemble, ils affrontent des ennemis puissants comme Loki, Ultron et Thanos. Leur courage et leur union font d'eux les défenseurs ultimes de l'humanité.</div>
-      <div className="card-footer">
-        <span>2024</span>
-        <ButtonPrimary className="card-button" label={<FaArrowRight />} onClick={() => {}}/>
+        <div className="title">Avenger</div>
+        <div className="description">
+          Les Avengers sont une équipe de super-héros issus des comics Marvel.
+          Réunis par Nick Fury, ils se battent pour protéger la Terre contre des
+          menaces globales. Leur formation initiale inclut Iron Man, Thor, Hulk,
+          Captain America, Black Widow et Hawkeye. Ensemble, ils affrontent des
+          ennemis puissants comme Loki, Ultron et Thanos. Leur courage et leur
+          union font d'eux les défenseurs ultimes de l'humanité.
         </div>
-    </div>
+        <div className="card-footer">
+          <span>2024</span>
+          <ButtonPrimary
+            className="card-button"
+            label={<FaArrowRight />}
+            onClick={() => {}}
+          />
+        </div>
+      </div>
     </CardPrimaryStyled>
   );
 }
@@ -42,7 +53,7 @@ const CardPrimaryStyled = styled.div`
       object-fit: cover;
     }
   }
-  .title{
+  .title {
     margin-bottom: 20px;
     font-size: 24px;
     display: flex;
@@ -53,21 +64,20 @@ const CardPrimaryStyled = styled.div`
     text-overflow: ellipsis;
     overflow: hidden;
   }
-  .card-button{
+  .card-button {
     width: 60px;
-
   }
-  .card-footer{
+  .card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    span{
-        font-family: bold ;
-        font-size: 25px;
+    span {
+      font-family: bold;
+      font-size: 25px;
     }
   }
-  .description{
+  .description {
     height: 155px;
     text-overflow: ellipsis;
     overflow-y: auto;

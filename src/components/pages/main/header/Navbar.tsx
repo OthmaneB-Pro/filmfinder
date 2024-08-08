@@ -59,7 +59,7 @@ const ListeStyled = styled.ul`
 
   li a:hover:not(.active) {
     background-color: white;
-    color : #25a3dd;
+    color: #25a3dd;
   }
 
   .search {
