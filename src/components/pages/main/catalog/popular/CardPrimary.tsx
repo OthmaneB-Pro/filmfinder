@@ -2,24 +2,25 @@ import styled from "styled-components";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 import { FaArrowRight } from "react-icons/fa";
 
-export default function CardPrimary() {
+type CardPrimaryType = {
+  title: string;
+  label: string;
+  date : string;
+}
+
+export default function CardPrimary({title, label, date} : CardPrimaryType) {
   return (
     <CardPrimaryStyled>
       <div className="image">
         <img src="/img/affiche-avenger-afinity.jpg" alt="categories" />
       </div>
       <div>
-        <div className="title">Avenger</div>
+        <div className="title">{title}</div>
         <div className="description">
-          Les Avengers sont une équipe de super-héros issus des comics Marvel.
-          Réunis par Nick Fury, ils se battent pour protéger la Terre contre des
-          menaces globales. Leur formation initiale inclut Iron Man, Thor, Hulk,
-          Captain America, Black Widow et Hawkeye. Ensemble, ils affrontent des
-          ennemis puissants comme Loki, Ultron et Thanos. Leur courage et leur
-          union font d'eux les défenseurs ultimes de l'humanité.
+          {label}
         </div>
         <div className="card-footer">
-          <span>2024</span>
+          <span>{date}</span>
           <ButtonPrimary
             className="card-button"
             label={<FaArrowRight />}

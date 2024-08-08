@@ -20,4 +20,18 @@ export const GetGenreMovie = async () => {
     };
 };
 
+export const GetPopularMovie = async () => {
+  try {
+    const res = await axios.get("https://api.themoviedb.org/3/movie/popular?language=fr-US&page=1", {
+      params: {
+        api_key: apiKey,
+      },
+    });
+    return res.data.results; 
+  } catch (err) {
+    console.error("Erreur dans la recuperation du popular des films", err);
+    throw err; 
+  }
+};
+
 export { apiKey };

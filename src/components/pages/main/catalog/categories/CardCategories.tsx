@@ -24,11 +24,10 @@ const CardCategoriesStyled = styled.div`
   display: grid;
   grid-template-rows: 3fr 1fr;
   overflow: hidden;
-  border: 1px solid black;
+  border: 3px solid black;
   margin-top: 30px;
 
   .image {
-   
     overflow: hidden;
     img {
       width: 100%;
