@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
-export default function CardCategories() {
+type CardCategoriesType = {
+  label? : string;
+  href? : string;
+  image? : string;
+}
+
+export default function CardCategories({label, href, image} : CardCategoriesType) {
   return (
     <CardCategoriesStyled>
       <div className="image">
-       <a href="/" ><img src="/img/affiche-avenger-afinity.jpg" alt="categories" /></a>
+       <a href={href} ><img src={image} alt="categories" /></a>
       </div>
-      <div className="categories">Action</div>
+      <div className="categories">{label}</div>
     </CardCategoriesStyled>
   );
 }

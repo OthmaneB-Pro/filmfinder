@@ -1,19 +1,36 @@
 import styled from "styled-components";
 import CardCategories from "./CardCategories";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { apiKey } from "../../../../../api/moviedb";
+
+type GenreType = {
+  id: number;
+  name : string;
+  image: string;
+}
 
 export default function Categories() {
+  const [movieGenre, setMovieGenre] = useState<GenreType[]>([])
+
+  useEffect(() => {
+  axios.get("https://api.themoviedb.org/3/genre/movie/list?language=fr", {
+    params: {
+      api_key: apiKey,
+    }
+  })
+    .then(res => {
+      setMovieGenre(res.data.genres)
+    })
+    .catch(err => {
+      console.error("Erreur dans la recuperation du genre des films", err)
+    })
+  }, [])
   return (
     <CategoriesStyled>
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
-      <CardCategories />
+      {movieGenre.map((genre) => (
+        <CardCategories key={genre.id} label={genre.name}/>
+      ))}
     </CategoriesStyled>
   );
 }
