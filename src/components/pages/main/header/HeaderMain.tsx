@@ -1,5 +1,5 @@
 import Logo from "../../../reusable-ui/Logo";
-import Navbar from "./Navbar";
+import Navbar from "../../../reusable-ui/Navbar";
 import TitleTextWithDivider from "../../../reusable-ui/TitleTextWithDivider";
 import Banner from "./Banner";
 import styled from "styled-components";

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import SearchButton from "./SearchButton";
+import SearchButton from "../pages/main/header/SearchButton";
 
 export default function Navbar() {
   const { username } = useParams();
   return (
     <ListeStyled>
       <li>
-        <a href="/">Films</a>
+        <a href="/movies">Films</a>
       </li>
       <li>
         <a href="/">Séries</a>
