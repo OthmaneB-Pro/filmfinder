@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CardPrimary from "./CardPrimary";
+import CardPrimary from "../../../../reusable-ui/CardPrimary";
 import { useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../../api/moviedb";
 import { useNavigate } from "react-router-dom";
@@ -14,12 +14,12 @@ type PopularMovieType = {
 
 export default function PopularMovieAndSeries() {
   const [moviePopular, setMoviePopular] = useState<PopularMovieType[]>([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadPopular = async () => {
-        const populars = await GetPopularMovie();
-        setMoviePopular(populars);
+      const populars = await GetPopularMovie();
+      setMoviePopular(populars);
     };
 
     loadPopular();
@@ -27,22 +27,23 @@ export default function PopularMovieAndSeries() {
 
   return (
     <ScrollableContainer>
-    <PopularStyled>
-      {moviePopular.map((popular) => (
-        <CardPrimary
-          key={popular.id}
-          title={popular.title}
-          image={popular.poster_path}
-          label={popular.overview}
-          date={popular.release_date}
-          onClick={() => {navigate(`/film/${popular.id}`)}}
-        />
-      ))}
-    </PopularStyled>
+      <PopularStyled>
+        {moviePopular.map((popular) => (
+          <CardPrimary
+            key={popular.id}
+            title={popular.title}
+            image={popular.poster_path}
+            label={popular.overview}
+            date={popular.release_date}
+            onClick={() => {
+              navigate(`/film/${popular.id}`);
+            }}
+          />
+        ))}
+      </PopularStyled>
     </ScrollableContainer>
   );
 }
-
 
 const ScrollableContainer = styled.div`
   overflow-x: auto;

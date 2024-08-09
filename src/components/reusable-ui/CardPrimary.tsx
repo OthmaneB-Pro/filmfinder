@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
+import ButtonPrimary from "./ButtonPrimary";
 import { FaArrowRight } from "react-icons/fa";
 
 type CardPrimaryType = {
@@ -7,7 +7,7 @@ type CardPrimaryType = {
   label: string;
   date: string;
   image: string;
-  onClick: () => void ;
+  onClick: () => void;
 };
 
 export default function CardPrimary({
