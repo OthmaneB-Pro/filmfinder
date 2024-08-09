@@ -7,6 +7,7 @@ type CardPrimaryType = {
   label: string;
   date: string;
   image: string;
+  onClick: () => void ;
 };
 
 export default function CardPrimary({
@@ -14,6 +15,7 @@ export default function CardPrimary({
   label,
   date,
   image,
+  onClick,
 }: CardPrimaryType) {
   const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
   return (
@@ -29,7 +31,7 @@ export default function CardPrimary({
           <ButtonPrimary
             className="card-button"
             label={<FaArrowRight />}
-            onClick={() => {}}
+            onClick={onClick}
           />
         </div>
       </div>
@@ -63,7 +65,7 @@ const CardPrimaryStyled = styled.div`
     margin-bottom: 20px;
     font-size: 24px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     font-family: Caflisch Script, Adobe Poetica, Sanvito, cursive;
     color: #25a3dd;

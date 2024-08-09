@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CardPrimary from "./CardPrimary";
 import { useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../../api/moviedb";
+import { useNavigate } from "react-router-dom";
 
 type PopularMovieType = {
   id: number;
@@ -13,24 +14,19 @@ type PopularMovieType = {
 
 export default function PopularMovieAndSeries() {
   const [moviePopular, setMoviePopular] = useState<PopularMovieType[]>([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const loadPopular = async () => {
-      try {
         const populars = await GetPopularMovie();
         setMoviePopular(populars);
-      } catch (err) {
-        console.error(
-          "Erreur lors du chargement des films et séries populaires",
-          err
-        );
-      }
     };
 
     loadPopular();
   }, [setMoviePopular]);
 
   return (
+    <ScrollableContainer>
     <PopularStyled>
       {moviePopular.map((popular) => (
         <CardPrimary
@@ -39,17 +35,33 @@ export default function PopularMovieAndSeries() {
           image={popular.poster_path}
           label={popular.overview}
           date={popular.release_date}
+          onClick={() => {navigate(`/film/${popular.id}`)}}
         />
       ))}
     </PopularStyled>
+    </ScrollableContainer>
   );
 }
+
+
+const ScrollableContainer = styled.div`
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+  padding-left: 130px;
+  margin-top: 50px;
+  width: calc(93% - 130px);
+`;
 
 const PopularStyled = styled.div`
   margin-left: 60px;
   margin-right: 50px;
   margin-bottom: 150px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(20, 1fr);
   grid-column-gap: -10px;
+  & > div {
+    flex: 0 0 calc(100% / 6);
+    max-width: 300px;
+  }
 `;

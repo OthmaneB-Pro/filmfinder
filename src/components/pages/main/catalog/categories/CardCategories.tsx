@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 type CardCategoriesType = {
   label: string;
-  href?: string;
+  href: string;
   image: string;
 };
 
