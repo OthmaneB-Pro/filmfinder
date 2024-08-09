@@ -44,6 +44,7 @@ export default function MoviesAvailable() {
           }}
         />
       ))}
+
       <ButtonPrimary
         label="Page Suivante ->"
         onClick={() => {
@@ -64,7 +65,9 @@ const AvailableStyled = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: -10px;
 
-  .button-page{
-    
+  .button-page {
+    width: 180px;
+    margin-left: 40px;
+    margin-top: 20px;
   }
 `;
