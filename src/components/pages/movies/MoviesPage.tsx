@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import Logo from "../../reusable-ui/Logo";
-import Navbar from "../../reusable-ui/Navbar";
-import TitleTextWithDivider from "../../reusable-ui/TitleTextWithDivider";
 import MoviesAvailable from "./MoviesAvailable";
 import { useState } from "react";
 import { MoviesPageContext } from "../../../context/MoviesPageContext";
+import HeaderMovies from "./header/HeaderMovies";
 
 export default function MoviesPage() {
   const [page, setPage] = useState(1);
@@ -17,18 +15,11 @@ export default function MoviesPage() {
   return (
     <MoviesPageContext.Provider value={moviesContextValue}>
       <MoviesPageStyled>
-        <Logo className="logo" />
-        <Navbar />
-        <TitleTextWithDivider label="Liste des Films disponibles" />
+        <HeaderMovies />
         <MoviesAvailable />
       </MoviesPageStyled>
     </MoviesPageContext.Provider>
   );
 }
 
-const MoviesPageStyled = styled.div`
-  .logo {
-    z-index: 2;
-    margin-left: 100px;
-  }
-`;
+const MoviesPageStyled = styled.div``;
