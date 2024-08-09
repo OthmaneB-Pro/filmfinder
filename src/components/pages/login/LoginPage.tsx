@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LoginForm from "./LoginForm";
+import LoginForm from "./loginForm/LoginForm";
 import LoginImage from "./LoginImage";
 
 export default function LoginPage() {
@@ -17,9 +17,10 @@ const LoginPageStyle = styled.div`
   height: 100vh;
   background-size: cover;
   overflow-y: hidden;
-  
+  background-color: #25a3dd;
 
-  .container{
+
+  .container {
     background: white;
     width: 65%;
     height: 70vh;

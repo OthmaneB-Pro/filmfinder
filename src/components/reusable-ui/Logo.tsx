@@ -1,8 +1,12 @@
 import styled from "styled-components"
 
-export default function Logo() {
+type LogoType = {
+    className? : string;
+}
+
+export default function Logo({className}: LogoType) {
   return (
-    <ImageStyled><img src="/img/filmFinderLogo.png" alt="FilmFinder" /></ImageStyled>
+    <ImageStyled className={className}><img src="/img/filmFinderLogo.png" alt="FilmFinder" /></ImageStyled>
   )
 }
 
