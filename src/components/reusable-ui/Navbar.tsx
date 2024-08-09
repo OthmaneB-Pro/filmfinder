@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import SearchButton from "../pages/main/header/SearchButton";
+import { FaHouse } from "react-icons/fa6";
 
 export default function Navbar() {
   const { username } = useParams();
   return (
     <ListeStyled>
+      <li>
+        <a href="/main/:username"><FaHouse /></a>
+      </li>
       <li>
         <a href="/movies">Films</a>
       </li>

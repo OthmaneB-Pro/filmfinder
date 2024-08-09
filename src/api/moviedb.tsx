@@ -34,4 +34,18 @@ export const GetPopularMovie = async () => {
   }
 };
 
+export const GetAvailableMovie = async () => {
+  try {
+    const res = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=fr-US&page=1", {
+      params: {
+        api_key: apiKey,
+      },
+    });
+    return res.data.results; 
+  } catch (err) {
+    console.error("Erreur dans la recuperation des films disponibles", err);
+    throw err; 
+  }
+};
+
 export { apiKey };
