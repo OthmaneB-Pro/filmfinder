@@ -14,7 +14,7 @@ export default function Navbar() {
         <a href="/movies">Films</a>
       </li>
       <li>
-        <a href="/">Séries</a>
+        <a href="/series">Séries</a>
       </li>
       <li>
         <a href="/">Votre liste : {username}</a>
