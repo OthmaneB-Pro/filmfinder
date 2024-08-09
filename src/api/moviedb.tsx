@@ -50,4 +50,20 @@ export const GetAvailableMovie = async (page : number) => {
   }
 };
 
+export const GetAvailableSerie = async (page : number) => {
+  try {
+    const res = await axios.get("https://api.themoviedb.org/3/tv/top_rated", {
+      params: {
+        api_key: apiKey,
+        language: "fr-FR",
+        page: page,
+      },
+    });
+    return res.data.results; 
+  } catch (err) {
+    console.error("Erreur dans la recuperation des films disponibles", err);
+    throw err; 
+  }
+};
+
 export { apiKey };
