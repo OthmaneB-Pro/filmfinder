@@ -2,6 +2,8 @@ import { useState } from "react";
 import HeaderSeries from "./header/HeaderSeries";
 import SeriesAvailable from "./SeriesAvailable";
 import { SeriesPageContext } from "../../../context/SeriesPageContext";
+import styled from "styled-components";
+import FooterMainPage from "../../reusable-ui/FooterPage";
 
 export default function SeriesPage() {
   const [page, setPage] = useState(1);
@@ -13,10 +15,15 @@ export default function SeriesPage() {
 
   return (
     <SeriesPageContext.Provider value={seriesContextValue}>
-      <div>
+      <SeriesPageStyled>
         <HeaderSeries />
         <SeriesAvailable />
-      </div>
+        <FooterMainPage />
+      </SeriesPageStyled>
     </SeriesPageContext.Provider>
   );
 }
+
+const SeriesPageStyled = styled.div`
+  background: #f5f5f7;
+`;

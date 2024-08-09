@@ -55,7 +55,6 @@ const ScrollableContainer = styled.div`
 `;
 
 const PopularStyled = styled.div`
-  margin-left: 60px;
   margin-right: 50px;
   margin-bottom: 150px;
   display: grid;
