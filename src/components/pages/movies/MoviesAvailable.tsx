@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableMovie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
+import { MoviesPageContext } from "../../../context/MoviesPageContext";
 
 type MovieAvailableType = {
   id: number;
@@ -17,16 +18,17 @@ export default function MoviesAvailable() {
   const [movieAvailable, setMovieAvailable] = useState<MovieAvailableType[]>(
     []
   );
+  const { page, setPage } = useContext(MoviesPageContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     const loadPopular = async () => {
-      const availables = await GetAvailableMovie();
+      const availables = await GetAvailableMovie(page);
       setMovieAvailable(availables);
     };
 
     loadPopular();
-  }, [setMovieAvailable]);
+  }, [page]);
 
   return (
     <AvailableStyled>
@@ -42,7 +44,14 @@ export default function MoviesAvailable() {
           }}
         />
       ))}
-      <ButtonPrimary label="Page Suivante ->" onClick={() => {}} className="" / >
+      <ButtonPrimary
+        label="Page Suivante ->"
+        onClick={() => {
+          setPage(page + 1);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className="button-page"
+      />
     </AvailableStyled>
   );
 }
@@ -54,4 +63,8 @@ const AvailableStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: -10px;
+
+  .button-page{
+    
+  }
 `;

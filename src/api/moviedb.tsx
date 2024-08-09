@@ -34,11 +34,13 @@ export const GetPopularMovie = async () => {
   }
 };
 
-export const GetAvailableMovie = async () => {
+export const GetAvailableMovie = async (page : number) => {
   try {
-    const res = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=fr-US&page=1", {
+    const res = await axios.get("https://api.themoviedb.org/3/movie/now_playing", {
       params: {
         api_key: apiKey,
+        language: "fr-FR",
+        page: page,
       },
     });
     return res.data.results; 
