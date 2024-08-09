@@ -46,8 +46,10 @@ const CardPrimaryStyled = styled.div`
   display: grid;
   grid-template-rows: 2fr 1fr;
   overflow: hidden;
-  border: 3px solid black;
-  margin-top: 30px;
+  border: 3px solid grey;
+  border-radius: 15px;
+  box-shadow: -8px 8px 20px 0px rgba(24, 148, 209, 0.833);
+    margin-top: 30px;
   margin-left: 40px;
   padding: 10px;
 

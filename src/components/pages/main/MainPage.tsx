@@ -26,5 +26,4 @@ const [movieGenre, setMovieGenre] = useState<GenreType[]>([]);
 }
 
 const MainPageStyled = styled.div`
-  
 `;
