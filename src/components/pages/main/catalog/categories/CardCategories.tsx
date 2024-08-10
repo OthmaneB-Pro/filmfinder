@@ -32,7 +32,8 @@ const CardCategoriesStyled = styled.div`
   overflow: hidden;
   border: 3px solid black;
   margin-top: 30px;
-
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.225);
+  
   .image {
     overflow: hidden;
     img {

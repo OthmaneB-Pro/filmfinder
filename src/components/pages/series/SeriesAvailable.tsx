@@ -2,29 +2,29 @@ import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
-import { GetAvailableMovie } from "../../../api/moviedb";
+import { GetAvailableSerie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
-import { MoviesPageContext } from "../../../context/MoviesPageContext";
+import { SeriesPageContext } from "../../../context/SeriesPageContext";
 
-type MovieAvailableType = {
+type SerieAvailableType = {
   id: number;
-  title: string;
+  original_name: string;
   overview: string;
-  release_date: string;
+  first_air_date: string;
   poster_path: string;
 };
 
-export default function MoviesAvailable() {
-  const [movieAvailable, setMovieAvailable] = useState<MovieAvailableType[]>(
+export default function SeriesAvailable() {
+  const [serieAvailable, setSerieAvailable] = useState<SerieAvailableType[]>(
     []
   );
-  const { page, setPage } = useContext(MoviesPageContext);
+  const { page, setPage } = useContext(SeriesPageContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     const loadPopular = async () => {
-      const availables = await GetAvailableMovie(page);
-      setMovieAvailable(availables);
+      const availables = await GetAvailableSerie(page);
+      setSerieAvailable(availables);
     };
 
     loadPopular();
@@ -32,13 +32,13 @@ export default function MoviesAvailable() {
 
   return (
     <AvailableStyled>
-      {movieAvailable.map((available) => (
+      {serieAvailable.map((available) => (
         <CardPrimary
           key={available.id}
-          title={available.title}
+          title={available.original_name}
           image={available.poster_path}
           label={available.overview}
-          date={available.release_date}
+          date={available.first_air_date}
           onClick={() => {
             navigate(`/film/${available.id}`);
           }}
