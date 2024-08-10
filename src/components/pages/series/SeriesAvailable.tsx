@@ -41,7 +41,7 @@ export default function SeriesAvailable() {
           label={available.overview}
           date={available.first_air_date}
           onClick={() => {
-            navigate(`/film/${available.id}`);
+            navigate(`/${available.original_name}`);
           }}
           onAddFavorite={() => {}}
         />

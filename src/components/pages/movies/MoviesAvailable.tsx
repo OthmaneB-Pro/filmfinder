@@ -43,7 +43,7 @@ export default function MoviesAvailable() {
           label={available.overview}
           date={available.release_date}
           onClick={() => {
-            navigate(`/film/${available.id}`);
+            navigate(`/${available.id}`);
           }}
           onAddFavorite={() => onAddFavorite(available)}
         />
