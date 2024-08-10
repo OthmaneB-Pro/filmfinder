@@ -5,6 +5,7 @@ import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableMovie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { MoviesPageContext } from "../../../context/MoviesPageContext";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 type MovieAvailableType = {
   id: number;
@@ -44,15 +45,27 @@ export default function MoviesAvailable() {
           }}
         />
       ))}
-
       <ButtonPrimary
-        label="Page Suivante ->"
+        label={<FaArrowCircleLeft />}
+        onClick={() => {
+          {page === 1 ? setPage(page) : setPage(page -1)}
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className="button-next-page"
+      />
+
+      
+      <ButtonPrimary
+      label={(<>
+        Page Suivante <FaArrowCircleRight />
+      </>)}
         onClick={() => {
           setPage(page + 1);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        className="button-page"
+        className="button-next-page"
       />
+
     </AvailableStyled>
   );
 }
@@ -64,7 +77,7 @@ const AvailableStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  .button-page {
+  .button-next-page {
     width: 180px;
     margin-left: 40px;
     margin-top: 20px;

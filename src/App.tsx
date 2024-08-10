@@ -4,6 +4,7 @@ import Error from "./components/pages/error/error";
 import MainPage from "./components/pages/main/MainPage";
 import MoviesPage from "./components/pages/movies/MoviesPage";
 import SeriesPage from "./components/pages/series/SeriesPage";
+import MyList from "./components/pages/myList/MyList";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/main/:username" element={<MainPage/>} />
         <Route path="/movies" element={<MoviesPage/>} />
         <Route path="/series" element={<SeriesPage/>} />
-
+        <Route path="/myList" element={<MyList/>} />
       </Routes>
     </BrowserRouter>
   );

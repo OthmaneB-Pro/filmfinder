@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ButtonPrimary from "./ButtonPrimary";
 import { FaArrowRight } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
+import { useState } from "react";
 
 type CardPrimaryType = {
   title: string;
@@ -17,6 +19,7 @@ export default function CardPrimary({
   image,
   onClick,
 }: CardPrimaryType) {
+  const [isHeartActive, setIsHeartActive] = useState(false)
   const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
   return (
     <CardPrimaryStyled>
@@ -28,6 +31,10 @@ export default function CardPrimary({
         <div className="description">{label}</div>
         <div className="card-footer">
           <span>{date}</span>
+          <button className={`heart-list ${isHeartActive ? "active" : ""}`}
+            onClick={() => setIsHeartActive(!isHeartActive)}>
+            <CiHeart />
+          </button>
           <ButtonPrimary
             className="card-button"
             label={<FaArrowRight />}
@@ -49,7 +56,7 @@ const CardPrimaryStyled = styled.div`
   border: 3px solid grey;
   border-radius: 15px;
   box-shadow: -8px 8px 20px 0px rgba(24, 148, 209, 0.833);
-    margin-top: 30px;
+  margin-top: 30px;
   margin-left: 40px;
   padding: 10px;
 
@@ -94,4 +101,21 @@ const CardPrimaryStyled = styled.div`
     overflow-y: auto;
     scrollbar-width: none;
   }
+  .heart-list {
+    
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg{
+      font-size: 36px;
+    }  
+    &.active svg {
+      color: #ff0404;
+    }
+  }
+  
 `;

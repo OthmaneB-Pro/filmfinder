@@ -17,7 +17,7 @@ export default function Navbar() {
         <a href="/series">Séries</a>
       </li>
       <li>
-        <a href="/">Votre liste : {username}</a>
+        <a href="/myList">Votre liste : {username}</a>
       </li>
       <SearchButton />
     </ListeStyled>
