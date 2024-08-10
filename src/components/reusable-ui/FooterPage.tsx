@@ -31,14 +31,13 @@ export default function FooterMainPage() {
 }
 
 const FooterStyled = styled.div`
-  width: 98.9%;
+  width: 100%;
   height: 320px;
   background-color: #25a3dd;
   color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr;
   font-size: 22px;
-  padding: 10px;
   overflow: hidden;
   box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.2);
   .contact {

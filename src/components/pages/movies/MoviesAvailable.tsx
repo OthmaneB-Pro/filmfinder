@@ -69,4 +69,10 @@ const AvailableStyled = styled.div`
     margin-left: 40px;
     margin-top: 20px;
   }
+  @media (max-width: 1400px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1000px){
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
