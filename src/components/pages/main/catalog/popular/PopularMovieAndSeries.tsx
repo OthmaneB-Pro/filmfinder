@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import CardPrimary from "../../../../reusable-ui/CardPrimary";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../../api/moviedb";
 import { useNavigate } from "react-router-dom";
+import { FavoriteList } from "../../../../../context/FavoriteList";
 
 type PopularMovieType = {
   id: number;
@@ -15,6 +16,7 @@ type PopularMovieType = {
 export default function PopularMovieAndSeries() {
   const [moviePopular, setMoviePopular] = useState<PopularMovieType[]>([]);
   const navigate = useNavigate();
+  const { onAddFavorite } = useContext(FavoriteList);
 
   useEffect(() => {
     const loadPopular = async () => {
@@ -38,6 +40,7 @@ export default function PopularMovieAndSeries() {
             onClick={() => {
               navigate(`/film/${popular.id}`);
             }}
+            onAddFavorite={() => onAddFavorite(popular)}
           />
         ))}
       </PopularStyled>

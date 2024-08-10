@@ -24,8 +24,6 @@ export default function MoviesAvailable() {
   const { onAddFavorite } = useContext(FavoriteList);
   const navigate = useNavigate();
 
-
-
   useEffect(() => {
     const loadPopular = async () => {
       const availables = await GetAvailableMovie(page);
