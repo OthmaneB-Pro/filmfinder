@@ -6,8 +6,9 @@ import { GetAvailableMovie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { MoviesPageContext } from "../../../context/MoviesPageContext";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { FavoriteList } from "../../../context/FavoriteList";
 
-type MovieAvailableType = {
+export type MovieAvailableType = {
   id: number;
   title: string;
   overview: string;
@@ -20,7 +21,10 @@ export default function MoviesAvailable() {
     []
   );
   const { page, setPage } = useContext(MoviesPageContext);
+  const { onAddFavorite } = useContext(FavoriteList);
   const navigate = useNavigate();
+
+
 
   useEffect(() => {
     const loadPopular = async () => {
@@ -43,29 +47,32 @@ export default function MoviesAvailable() {
           onClick={() => {
             navigate(`/film/${available.id}`);
           }}
+          onAddFavorite={() => onAddFavorite(available)}
         />
       ))}
       <ButtonPrimary
         label={<FaArrowCircleLeft />}
         onClick={() => {
-          {page === 1 ? setPage(page) : setPage(page -1)}
+          {
+            page === 1 ? setPage(page) : setPage(page - 1);
+          }
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         className="button-next-page"
       />
 
-      
       <ButtonPrimary
-      label={(<>
-        Page Suivante <FaArrowCircleRight />
-      </>)}
+        label={
+          <>
+            Page Suivante <FaArrowCircleRight />
+          </>
+        }
         onClick={() => {
           setPage(page + 1);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         className="button-next-page"
       />
-
     </AvailableStyled>
   );
 }
@@ -82,10 +89,10 @@ const AvailableStyled = styled.div`
     margin-left: 40px;
     margin-top: 20px;
   }
-  @media (max-width: 1400px){
+  @media (max-width: 1400px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 1000px){
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

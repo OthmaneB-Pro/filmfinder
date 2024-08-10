@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import ButtonPrimary from "./ButtonPrimary";
+import HeartButton from "./HeartButton";
 import { FaArrowRight } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
-import { useState } from "react";
 
 type CardPrimaryType = {
   title: string;
@@ -10,6 +9,7 @@ type CardPrimaryType = {
   date: string;
   image: string;
   onClick: () => void;
+  onAddFavorite: () => void;
 };
 
 export default function CardPrimary({
@@ -18,9 +18,10 @@ export default function CardPrimary({
   date,
   image,
   onClick,
+  onAddFavorite,
 }: CardPrimaryType) {
-  const [isHeartActive, setIsHeartActive] = useState(false)
   const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
+
   return (
     <CardPrimaryStyled>
       <div className="image">
@@ -31,10 +32,7 @@ export default function CardPrimary({
         <div className="description">{label}</div>
         <div className="card-footer">
           <span>{date}</span>
-          <button className={`heart-list ${isHeartActive ? "active" : ""}`}
-            onClick={() => setIsHeartActive(!isHeartActive)}>
-            <CiHeart />
-          </button>
+          <HeartButton onClick={onAddFavorite} />
           <ButtonPrimary
             className="card-button"
             label={<FaArrowRight />}
@@ -101,21 +99,4 @@ const CardPrimaryStyled = styled.div`
     overflow-y: auto;
     scrollbar-width: none;
   }
-  .heart-list {
-    
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg{
-      font-size: 36px;
-    }  
-    &.active svg {
-      color: #ff0404;
-    }
-  }
-  
 `;
