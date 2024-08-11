@@ -5,7 +5,7 @@ import HeaderForm from "./HeaderForm";
 import InputText from "../../../reusable-ui/inputText";
 import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import FooterForm from "./FooterForm";
-import { createUser } from "../../../../api/user";
+import { authenticateUser } from "../../../../api/user";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
@@ -18,9 +18,7 @@ export default function LoginForm() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    await createUser(formValues.username, formValues.password);
-    
-
+    await authenticateUser(formValues.username, formValues.password)
     navigate(`/Main/${formValues.username}`);
   };
 

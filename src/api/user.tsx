@@ -8,6 +8,7 @@ export const getUser = async (idUser : string) => {
 
     if(docSnapshot.exists()) {
         const userReceived = docSnapshot.data()
+        return userReceived;
     }
  }
 
@@ -19,4 +20,11 @@ export const createUser = async (idUser : string, password : string) => {
         myList: null,
     }
     await setDoc(docRef, newDoc)
+ }
+
+ export const authenticateUser = async (idUser : string, password: string) => {
+    const existingUser = await getUser(idUser)
+    if(!existingUser){
+        await createUser(idUser, password);
+      }
  }
