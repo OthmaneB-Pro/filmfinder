@@ -1,24 +1,23 @@
 import styled from "styled-components";
 import SearchButton from "../pages/main/header/SearchButton";
 import { FaHouse } from "react-icons/fa6";
-import { useContext } from "react";
-import { FavoriteList } from "../../context/FavoriteList";
+import { useParams } from "react-router-dom";
 
 export default function Navbar() {
-  const { username } = useContext(FavoriteList);
+  const { username } = useParams();
   return (
     <ListeStyled>
       <li>
-        <a href="/main/:username"><FaHouse /></a>
+        <a href={`/main/${username}`}><FaHouse /></a>
       </li>
       <li>
-        <a href="/movies/:username">Films</a>
+        <a href={`/movies/${username}`}>Films</a>
       </li>
       <li>
-        <a href="/series/:username">Séries</a>
+        <a href={`/series/${username}`}>Séries</a>
       </li>
       <li>
-        <a href="/myList/:username">Votre liste : {username}</a>
+        <a href={`/myList/${username}`}>Votre liste : {username}</a>
       </li>
       <SearchButton />
     </ListeStyled>

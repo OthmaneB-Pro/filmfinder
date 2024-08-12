@@ -1,13 +1,13 @@
-import Logo from "../../reusable-ui/Logo";
-import Navbar from "../../reusable-ui/Navbar";
+import FooterPage from "../../reusable-ui/FooterPage";
+import HeaderList from "./header/HeaderList";
 import MyListMoviesAndSeries from "./MyListMoviesAndSeries";
 
 export default function MyList() {
   return (
     <div>
-      <Logo/>
-      <Navbar/>
+      <HeaderList />
       <MyListMoviesAndSeries/>
+      <FooterPage/>
     </div>
   )
 }

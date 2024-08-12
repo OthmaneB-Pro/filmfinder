@@ -5,7 +5,6 @@ import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { SeriesPageContext } from "../../../context/SeriesPageContext";
-import { FavoriteList } from "../../../context/FavoriteList";
 
 type SerieAvailableType = {
   id: number;
