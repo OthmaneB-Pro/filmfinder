@@ -16,16 +16,7 @@ const [isFavorite, setIsFavorite] = useState<MovieAvailableType[]>([]);
     }
   };
 
-  useEffect(() => {
-    if (username) {
-      const fetchFavorites = async () => {
-        const listReceived = await getList(username);
-        setIsFavorite(listReceived);
-        console.log("listReceived", listReceived);
-      };
-      fetchFavorites();
-    }
-  }, [username]);
+  
 
   const FavoriteListValue = {
     isFavorite,

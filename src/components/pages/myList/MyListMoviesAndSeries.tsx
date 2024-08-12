@@ -1,11 +1,27 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { FavoriteList } from "../../../context/FavoriteList"
 import CardPrimary from "../../reusable-ui/CardPrimary"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+import { getList } from "../../../api/list"
 
 export default function MyListMoviesAndSeries() {
-    const {isFavorite} = useContext(FavoriteList)
+    const {isFavorite, setIsFavorite} = useContext(FavoriteList)
+    const {username} = useParams()
     const navigate = useNavigate()
+
+
+    useEffect(() => {
+        console.log("Username:", username); 
+        if (username) {
+          const fetchFavorites = async () => {
+            const listReceived = await getList(username);
+            setIsFavorite(listReceived);
+            console.log("listReceived", listReceived);
+          };
+          fetchFavorites();
+        }
+      }, [username]);
+
   return (
     <div>
         {isFavorite.map((item) => (

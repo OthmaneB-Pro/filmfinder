@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
 import SearchButton from "../pages/main/header/SearchButton";
 import { FaHouse } from "react-icons/fa6";
+import { useContext } from "react";
+import { FavoriteList } from "../../context/FavoriteList";
 
 export default function Navbar() {
-  const { username } = useParams();
+  const { username } = useContext(FavoriteList);
   return (
     <ListeStyled>
       <li>

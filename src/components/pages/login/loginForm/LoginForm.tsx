@@ -13,7 +13,7 @@ export default function LoginForm() {
     username: "",
     password: "",
   });
-  const {setUsername} = useContext(FavoriteList)
+  const { setUsername } = useContext(FavoriteList);
   const navigate = useNavigate();
 
   const handleClick = async (
@@ -22,9 +22,8 @@ export default function LoginForm() {
     event.preventDefault();
     await authenticateUser(formValues.username, formValues.password);
 
-      setUsername(formValues.username); 
-      navigate(`/main/${formValues.username}`); 
-    
+    setUsername(formValues.username);
+    navigate(`/main/${formValues.username}`);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
