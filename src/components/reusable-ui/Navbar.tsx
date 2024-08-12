@@ -11,13 +11,13 @@ export default function Navbar() {
         <a href="/main/:username"><FaHouse /></a>
       </li>
       <li>
-        <a href="/movies">Films</a>
+        <a href="/movies/:username">Films</a>
       </li>
       <li>
-        <a href="/series">Séries</a>
+        <a href="/series/:username">Séries</a>
       </li>
       <li>
-        <a href="/myList">Votre liste : {username}</a>
+        <a href="/myList/:username">Votre liste : {username}</a>
       </li>
       <SearchButton />
     </ListeStyled>
