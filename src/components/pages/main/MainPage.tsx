@@ -8,7 +8,7 @@ import { MoviesContext } from "../../../context/MoviesContext";
 
 export default function MainPage() {
   const [movieGenre, setMovieGenre] = useState<GenreType[]>([]);
-
+  
   const moviesContextValue = {
     movieGenre,
     setMovieGenre,

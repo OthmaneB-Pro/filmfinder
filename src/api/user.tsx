@@ -17,7 +17,7 @@ export const createUser = async (idUser : string, password : string) => {
     const newDoc = {
         username: idUser,
         password: password,
-        myList: null,
+        myList: [],
     }
     await setDoc(docRef, newDoc)
  }
