@@ -7,7 +7,7 @@ export default function HeaderMovies() {
   return (
     <HeaderMoviesStyled>
       <Logo className="logo" />
-      <Navbar  />
+      <Navbar />
       <TitleTextWithDivider label="Liste des Films disponibles" />
     </HeaderMoviesStyled>
   );

@@ -2,13 +2,17 @@ import styled from "styled-components";
 import SearchButton from "../pages/main/header/SearchButton";
 import { FaHouse } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
+import { CiLogout } from "react-icons/ci";
 
 export default function Navbar() {
   const { username } = useParams();
   return (
     <ListeStyled>
       <li>
-        <a href={`/main/${username}`}><FaHouse /></a>
+        <a href={`/main/${username}`}><FaHouse/></a>
+      </li>
+      <li>
+        <a href="/"><CiLogout/></a>
       </li>
       <li>
         <a href={`/movies/${username}`}>Films</a>
