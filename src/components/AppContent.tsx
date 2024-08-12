@@ -1,8 +1,8 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren, useState } from "react";
 
 import { FavoriteList } from "../context/FavoriteList";
 import { MovieAvailableType } from "./pages/movies/MoviesAvailable";
-import { getList, saveList } from "../api/list";
+import {  saveList } from "../api/list";
 
 const AppContent: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 const [username, setUsername] = useState("")  

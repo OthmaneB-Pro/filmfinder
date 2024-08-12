@@ -3,9 +3,19 @@ import SearchButton from "../pages/main/header/SearchButton";
 import { FaHouse } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
+import { useContext, useEffect } from "react";
+import { FavoriteList } from "../../context/FavoriteList";
 
 export default function Navbar() {
-  const { username } = useParams();
+  const { username, setUsername } = useContext(FavoriteList);
+  const params = useParams();
+
+  useEffect(() => {
+    if (params.username) {
+      setUsername(params.username);
+    }
+  }, [params.username, setUsername]);
+
   return (
     <ListeStyled>
       <li>

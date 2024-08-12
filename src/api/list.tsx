@@ -13,7 +13,14 @@ export const getList = async (idUser : string) => {
  }
   
   // Fonction pour sauvegarder la liste des favoris dans Firestore
-  export const saveList = async (idUser : string, favorites: MovieAvailableType[]) => {
+  export const saveList = async (idUser : string, newFavorites: MovieAvailableType[]) => {
     const docRef = doc(db, "users", idUser);
-    await setDoc(docRef, { favorites }, { merge: true });
+    const docSnapshot = await getDoc(docRef);
+    let existingFavorites: MovieAvailableType[] = [];
+
+    if (docSnapshot.exists()) {
+        existingFavorites = docSnapshot.data().favorites || [];
+    }
+    const updatedFavorites = [...existingFavorites, ...newFavorites];
+    await setDoc(docRef, { favorites: updatedFavorites }, { merge: true });
   };
