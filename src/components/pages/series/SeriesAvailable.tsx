@@ -43,7 +43,7 @@ export default function SeriesAvailable() {
           onClick={() => {
             navigate(`/${available.original_name}`);
           }}
-          onAddFavorite={() => {}}
+          onFavorite={() => {}}
         />
       ))}
 

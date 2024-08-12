@@ -10,6 +10,12 @@ export default function MyListMoviesAndSeries() {
   const { username } = useParams();
   const navigate = useNavigate();
 
+  const handleDelete = (idProduct : number) => {
+    const newFavorite = isFavorite.filter((product) => product.id !== idProduct)
+    setIsFavorite(newFavorite)
+    console.log(isFavorite)
+  }
+
   useEffect(() => {
     console.log("Username:", username);
     if (username) {
@@ -35,7 +41,10 @@ export default function MyListMoviesAndSeries() {
             onClick={() => {
               navigate(`/${item.title}`);
             }}
-            onAddFavorite={() => {}}
+            onFavorite={() => {}}
+            isInMyList={true}
+            onDelete={() => {handleDelete(item.id)}}
+
           />
         ))}
       </MyListStyled>

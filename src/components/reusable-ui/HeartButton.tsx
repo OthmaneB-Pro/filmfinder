@@ -13,6 +13,9 @@ export default function HeartButton({ isActive = false, onClick }: HeartButtonPr
   const handleClick = () => {
     setActive(!active);
     onClick();
+    if(!active){
+        console.log("oui")
+    }
   };
 
   return (

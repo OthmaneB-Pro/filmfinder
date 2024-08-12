@@ -40,7 +40,7 @@ export default function PopularMovieAndSeries() {
             onClick={() => {
               navigate(`/film/${popular.id}`);
             }}
-            onAddFavorite={() => onAddFavorite(popular)}
+            onFavorite={() => onAddFavorite(popular)}
           />
         ))}
       </PopularStyled>

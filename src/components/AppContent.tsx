@@ -8,6 +8,7 @@ const AppContent: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 const [username, setUsername] = useState("")  
 const [isFavorite, setIsFavorite] = useState<MovieAvailableType[]>([]);
 
+
   const onAddFavorite = async (item: MovieAvailableType) => {
     const updatedFavorites = [...isFavorite, item];
     setIsFavorite(updatedFavorites);

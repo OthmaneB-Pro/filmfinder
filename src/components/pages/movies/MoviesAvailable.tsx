@@ -45,7 +45,7 @@ export default function MoviesAvailable() {
           onClick={() => {
             navigate(`/${available.id}`);
           }}
-          onAddFavorite={() => onAddFavorite(available)}
+          onFavorite={() => onAddFavorite(available)}
         />
       ))}
       <ButtonPrimary

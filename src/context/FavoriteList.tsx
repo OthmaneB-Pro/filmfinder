@@ -16,4 +16,5 @@ export const FavoriteList = createContext<FavoriteListType>({
     onAddFavorite : () => {},
     username : "",
     setUsername: () => {},
+    
 })

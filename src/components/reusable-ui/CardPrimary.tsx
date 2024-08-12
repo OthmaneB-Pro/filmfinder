@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ButtonPrimary from "./ButtonPrimary";
 import HeartButton from "./HeartButton";
 import { FaArrowRight } from "react-icons/fa";
+import DeleteButton from "./DeleteButton";
 
 type CardPrimaryType = {
   title: string;
@@ -9,7 +10,9 @@ type CardPrimaryType = {
   date: string;
   image: string;
   onClick: () => void;
-  onAddFavorite: () => void;
+  onFavorite: () => void;
+  isInMyList? : boolean;
+  onDelete? : () => void ;
 };
 
 export default function CardPrimary({
@@ -18,7 +21,9 @@ export default function CardPrimary({
   date,
   image,
   onClick,
-  onAddFavorite,
+  onFavorite,
+  isInMyList,
+  onDelete,
 }: CardPrimaryType) {
   const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
 
@@ -32,7 +37,8 @@ export default function CardPrimary({
         <div className="description">{label}</div>
         <div className="card-footer">
           <span>{date}</span>
-          <HeartButton onClick={onAddFavorite} />
+          {isInMyList && onDelete && <DeleteButton onClick={onDelete}/>}
+          <HeartButton onClick={onFavorite} />
           <ButtonPrimary
             className="card-button"
             label={<FaArrowRight />}
