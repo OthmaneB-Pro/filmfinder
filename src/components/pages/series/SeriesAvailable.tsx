@@ -5,7 +5,7 @@ import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { SeriesPageContext } from "../../../context/SeriesPageContext";
-import { FavoriteList } from "../../../context/FavoriteList";
+import ButtonNextAndPrevious from "../movies/ButtonNextAndPrevious";
 
 type SerieAvailableType = {
   id: number;
@@ -47,14 +47,7 @@ export default function SeriesAvailable() {
         />
       ))}
 
-      <ButtonPrimary
-        label="Page Suivante ->"
-        onClick={() => {
-          setPage(page + 1);
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-        className="button-page"
-      />
+      <ButtonNextAndPrevious/>
     </AvailableStyled>
   );
 }

@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { MovieAvailableType } from "../components/pages/movies/MoviesAvailable";
+import { GenreType } from "../components/pages/main/catalog/categories/Categories";
 
 type FavoriteListType = {
   isFavorite: MovieAvailableType[];
@@ -8,6 +9,8 @@ type FavoriteListType = {
   username: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   onDeleteFavorite: (idProduct: number) => void;
+ movieGenre: GenreType[];
+    setMovieGenre: React.Dispatch<React.SetStateAction<GenreType[]>>;
 };
 
 export const FavoriteList = createContext<FavoriteListType>({
@@ -17,4 +20,6 @@ export const FavoriteList = createContext<FavoriteListType>({
   username: "",
   setUsername: () => {},
   onDeleteFavorite: () => {},
+ movieGenre : [],
+    setMovieGenre : () => {},
 });
