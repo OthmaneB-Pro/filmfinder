@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import HeaderForm from "./HeaderForm";
-import InputText from "../../../reusable-ui/inputText";
+import InputText from "../../../reusable-ui/InputText";
 import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import FooterForm from "./FooterForm";
 import { authenticateUser } from "../../../../api/user";
@@ -16,12 +16,10 @@ export default function LoginForm() {
   const { setUsername } = useContext(FavoriteList);
   const navigate = useNavigate();
 
-  const handleClick = async (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await authenticateUser(formValues.username, formValues.password);
 
+    await authenticateUser(formValues.username, formValues.password);
     setUsername(formValues.username);
     navigate(`/main/${formValues.username}`);
   };
@@ -36,7 +34,7 @@ export default function LoginForm() {
     <FormulaireStyled>
       <HeaderForm />
 
-      <form action="submit">
+      <form onSubmit={handleClick}>
         <InputText
           type="text"
           value={formValues.username}
@@ -53,7 +51,7 @@ export default function LoginForm() {
           onChange={handleChange}
           required
         />
-        <ButtonPrimary label="Se connecter" onClick={handleClick} />
+        <ButtonPrimary label="Se connecter" onClick={() => {}} />
         <FooterForm />
       </form>
     </FormulaireStyled>
