@@ -33,7 +33,7 @@ export default function DetailsPage() {
       {movie ? (
       <div>
         <h1>{movie.title}</h1>
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`Affiche du film : ${movie.title}` } />
         <p>{movie.overview}</p>
         <h4>{movie.release_date}</h4>
         
