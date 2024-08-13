@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
-import ButtonNextAndPrevious from "../movies/ButtonNextAndPrevious";
+import ButtonNextAndPrevious from "../../reusable-ui/ButtonNextAndPrevious";
 import { FavoriteList } from "../../../context/UserContext";
 
 type SerieAvailableType = {

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableMovie } from "../../../api/moviedb";
 import { FavoriteList } from "../../../context/UserContext";
-import ButtonNextAndPrevious from "./ButtonNextAndPrevious";
+import ButtonNextAndPrevious from "../../reusable-ui/ButtonNextAndPrevious";
 
 export type MovieAvailableType = {
   id: number;

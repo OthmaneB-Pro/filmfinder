@@ -1,16 +1,14 @@
 import { useContext } from "react";
-import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
+import ButtonPrimary from "./ButtonPrimary";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import styled from "styled-components";
-import { FavoriteList } from "../../../context/UserContext";
+import { FavoriteList } from "../../context/UserContext";
 
 export default function ButtonNextAndPrevious() {
   const { page, setPage } = useContext(FavoriteList);
 
   const handleClickPrevious = () => {
-    {
-      page === 1 ? setPage(page) : setPage(page - 1);
-    }
+    setPage(Math.max(page - 1, 1));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
