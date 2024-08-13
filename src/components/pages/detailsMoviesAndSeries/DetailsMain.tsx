@@ -1,5 +1,12 @@
+import HeaderDetails from "./header/HeaderDetails";
+import FooterMainPage from "../../reusable-ui/FooterPage";
+
 export default function DetailsMain() {
   return (
-    <div>DetailsMain</div>
+    <div>
+        <HeaderDetails/>
+        <FooterMainPage/>
+    </div>
   )
 }
+
