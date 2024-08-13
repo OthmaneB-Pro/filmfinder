@@ -4,18 +4,22 @@ import Error from "./components/pages/error/error";
 import MainPage from "./components/pages/main/MainPage";
 import MoviesPage from "./components/pages/movies/MoviesPage";
 import SeriesPage from "./components/pages/series/SeriesPage";
+import MyList from "./components/pages/myList/MyList";
+import AppContent from "./components/AppContent"; // Importer AppContent
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="*" element={<Error />} />
-        <Route path="/main/:username" element={<MainPage/>} />
-        <Route path="/movies" element={<MoviesPage/>} />
-        <Route path="/series" element={<SeriesPage/>} />
-
-      </Routes>
+      <AppContent>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="*" element={<Error />} />
+          <Route path="/main/:username" element={<MainPage />} />
+          <Route path="/movies/:username" element={<MoviesPage />} />
+          <Route path="/series/:username" element={<SeriesPage />} />
+          <Route path="/myList/:username" element={<MyList />} />
+        </Routes>
+      </AppContent>
     </BrowserRouter>
   );
 }

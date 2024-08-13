@@ -14,4 +14,9 @@ const LoginImageStyled = styled.div`
     width: 832px;
     height: 680px;
   }
+  @media (max-width: 1600px){
+    img{
+      width: 650px;
+    }
+  }
 `;

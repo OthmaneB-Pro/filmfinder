@@ -1,26 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import HeaderForm from "./HeaderForm";
 import InputText from "../../../reusable-ui/inputText";
 import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import FooterForm from "./FooterForm";
+import { authenticateUser } from "../../../../api/user";
+import { FavoriteList } from "../../../../context/FavoriteList";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({
     username: "",
     password: "",
   });
+  const { setUsername } = useContext(FavoriteList);
   const navigate = useNavigate();
 
-  const handleClick = (
+  const handleClick = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    console.log(formValues.username);
-    console.log(formValues.password);
+    await authenticateUser(formValues.username, formValues.password);
 
-    navigate(`/Main/${formValues.username}`);
+    setUsername(formValues.username);
+    navigate(`/main/${formValues.username}`);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

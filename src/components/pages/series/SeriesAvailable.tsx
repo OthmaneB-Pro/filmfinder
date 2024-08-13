@@ -5,6 +5,7 @@ import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { SeriesPageContext } from "../../../context/SeriesPageContext";
+import { FavoriteList } from "../../../context/FavoriteList";
 
 type SerieAvailableType = {
   id: number;
@@ -40,8 +41,9 @@ export default function SeriesAvailable() {
           label={available.overview}
           date={available.first_air_date}
           onClick={() => {
-            navigate(`/film/${available.id}`);
+            navigate(`/${available.original_name}`);
           }}
+          onFavorite={() => {}}
         />
       ))}
 
@@ -68,5 +70,11 @@ const AvailableStyled = styled.div`
     width: 180px;
     margin-left: 40px;
     margin-top: 20px;
+  }
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
