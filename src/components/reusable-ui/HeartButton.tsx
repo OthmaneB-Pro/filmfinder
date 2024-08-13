@@ -1,21 +1,18 @@
 import styled from "styled-components";
 import { CiHeart } from "react-icons/ci";
-import { useState } from "react";
+import { useState,  } from "react";
 
 type HeartButtonProps = {
-  isActive?: boolean;
   onClick: () => void;
+  isFavorite?: boolean; 
 };
 
-export default function HeartButton({ isActive = false, onClick }: HeartButtonProps) {
-  const [active, setActive] = useState(isActive);
+export default function HeartButton({ onClick, isFavorite = false }: HeartButtonProps) {
+  const [active, setActive] = useState(isFavorite);
 
   const handleClick = () => {
     setActive(!active);
     onClick();
-    if(!active){
-        console.log("oui")
-    }
   };
 
   return (

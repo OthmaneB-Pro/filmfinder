@@ -38,8 +38,8 @@ export default function CardPrimary({
         <div className="card-footer">
           <span>{date}</span>
           {isInMyList && onDelete && <DeleteButton onClick={onDelete}/>}
-          <HeartButton onClick={onFavorite} />
-          <ButtonPrimary
+          {isInMyList ? "" : <HeartButton onClick={onFavorite} />}
+          <ButtonPrimary 
             className="card-button"
             label={<FaArrowRight />}
             onClick={onClick}
