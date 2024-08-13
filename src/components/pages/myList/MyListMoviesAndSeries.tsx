@@ -23,7 +23,7 @@ export default function MyListMoviesAndSeries() {
       };
       fetchFavorites();
     }
-  }, [username]);
+  }, [username, setIsFavorite]);
 
   return (
     <ScrollableContainer>
