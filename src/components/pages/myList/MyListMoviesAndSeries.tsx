@@ -1,16 +1,19 @@
 import { useContext, useEffect } from "react";
-import { FavoriteList } from "../../../context/FavoriteList";
+import { FavoriteList } from "../../../context/UserContext";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { useNavigate, useParams } from "react-router-dom";
 import { getList } from "../../../api/list";
 import EmptyList from "./EmptyList";
-import { CarouselStyled, ScrollableContainer } from "../../reusable-styles/CardPrimaryStyles";
+import {
+  CarouselStyled,
+  ScrollableContainer,
+} from "../../reusable-styles/CardPrimaryStyles";
 
 export default function MyListMoviesAndSeries() {
-  const { isFavorite, setIsFavorite , onDeleteFavorite} = useContext(FavoriteList);
+  const { isFavorite, setIsFavorite, onDeleteFavorite } =
+    useContext(FavoriteList);
   const { username } = useParams();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (username) {
@@ -25,7 +28,7 @@ export default function MyListMoviesAndSeries() {
   return (
     <ScrollableContainer>
       <CarouselStyled>
-        {isFavorite.length ? "" : <EmptyList/>}
+        {isFavorite.length ? "" : <EmptyList />}
         {isFavorite.map((item) => (
           <CardPrimary
             key={item.id}
@@ -38,13 +41,12 @@ export default function MyListMoviesAndSeries() {
             }}
             onFavorite={() => {}}
             isInMyList={true}
-            onDelete={() => {onDeleteFavorite(item.id)}}
-
+            onDelete={() => {
+              onDeleteFavorite(item.id);
+            }}
           />
         ))}
       </CarouselStyled>
     </ScrollableContainer>
   );
 }
-
-

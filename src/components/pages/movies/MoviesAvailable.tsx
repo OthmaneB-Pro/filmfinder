@@ -3,8 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableMovie } from "../../../api/moviedb";
-import { MoviesPageContext } from "../../../context/MoviesPageContext";
-import { FavoriteList } from "../../../context/FavoriteList";
+import { FavoriteList } from "../../../context/UserContext";
 import ButtonNextAndPrevious from "./ButtonNextAndPrevious";
 
 export type MovieAvailableType = {
@@ -19,7 +18,7 @@ export default function MoviesAvailable() {
   const [movieAvailable, setMovieAvailable] = useState<MovieAvailableType[]>(
     []
   );
-  const { page } = useContext(MoviesPageContext);
+  const { page } = useContext(FavoriteList);
   const { onAddFavorite } = useContext(FavoriteList);
   const navigate = useNavigate();
 

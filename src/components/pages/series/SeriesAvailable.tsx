@@ -3,9 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
-import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
-import { SeriesPageContext } from "../../../context/SeriesPageContext";
 import ButtonNextAndPrevious from "../movies/ButtonNextAndPrevious";
+import { FavoriteList } from "../../../context/UserContext";
 
 type SerieAvailableType = {
   id: number;
@@ -19,7 +18,7 @@ export default function SeriesAvailable() {
   const [serieAvailable, setSerieAvailable] = useState<SerieAvailableType[]>(
     []
   );
-  const { page, setPage } = useContext(SeriesPageContext);
+  const { page } = useContext(FavoriteList);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,7 +46,7 @@ export default function SeriesAvailable() {
         />
       ))}
 
-      <ButtonNextAndPrevious/>
+      <ButtonNextAndPrevious />
     </AvailableStyled>
   );
 }

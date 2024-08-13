@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-import { MoviesPageContext } from "../../../context/MoviesPageContext";
 import styled from "styled-components";
+import { FavoriteList } from "../../../context/UserContext";
 
 export default function ButtonNextAndPrevious() {
-  const { page, setPage } = useContext(MoviesPageContext);
+  const { page, setPage } = useContext(FavoriteList);
 
   const handleClickPrevious = () => {
     {
@@ -18,7 +18,6 @@ export default function ButtonNextAndPrevious() {
     setPage(page + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
 
   return (
     <ButtonNexTAndPreviousStyled>

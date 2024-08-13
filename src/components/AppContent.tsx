@@ -1,6 +1,6 @@
 import { PropsWithChildren, useState } from "react";
 
-import { FavoriteList } from "../context/FavoriteList";
+import { FavoriteList } from "../context/UserContext";
 import { MovieAvailableType } from "./pages/movies/MoviesAvailable";
 import { deleteList, saveList } from "../api/list";
 import { GenreType } from "./pages/main/catalog/categories/Categories";
@@ -9,8 +9,7 @@ const AppContent: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const [username, setUsername] = useState("");
   const [isFavorite, setIsFavorite] = useState<MovieAvailableType[]>([]);
   const [movieGenre, setMovieGenre] = useState<GenreType[]>([]);
-
-
+  const [page, setPage] = useState(1);
 
   const onAddFavorite = async (item: MovieAvailableType) => {
     const updatedFavorites = [...isFavorite, item];
@@ -38,7 +37,9 @@ const AppContent: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     setUsername,
     onDeleteFavorite,
     movieGenre,
-setMovieGenre,
+    setMovieGenre,
+    page,
+    setPage,
   };
 
   return (

@@ -6,7 +6,7 @@ import InputText from "../../../reusable-ui/inputText";
 import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import FooterForm from "./FooterForm";
 import { authenticateUser } from "../../../../api/user";
-import { FavoriteList } from "../../../../context/FavoriteList";
+import { FavoriteList } from "../../../../context/UserContext";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({

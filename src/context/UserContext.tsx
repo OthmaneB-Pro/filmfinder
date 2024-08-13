@@ -9,8 +9,10 @@ type FavoriteListType = {
   username: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   onDeleteFavorite: (idProduct: number) => void;
- movieGenre: GenreType[];
-    setMovieGenre: React.Dispatch<React.SetStateAction<GenreType[]>>;
+  movieGenre: GenreType[];
+  setMovieGenre: React.Dispatch<React.SetStateAction<GenreType[]>>;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const FavoriteList = createContext<FavoriteListType>({
@@ -20,6 +22,8 @@ export const FavoriteList = createContext<FavoriteListType>({
   username: "",
   setUsername: () => {},
   onDeleteFavorite: () => {},
- movieGenre : [],
-    setMovieGenre : () => {},
+  movieGenre: [],
+  setMovieGenre: () => {},
+  page: 1,
+  setPage: () => {},
 });

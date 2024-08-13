@@ -4,7 +4,7 @@ import { FaHouse } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import { useContext, useEffect } from "react";
-import { FavoriteList } from "../../context/FavoriteList";
+import { FavoriteList } from "../../context/UserContext";
 
 export default function Navbar() {
   const { username, setUsername } = useContext(FavoriteList);
@@ -19,10 +19,14 @@ export default function Navbar() {
   return (
     <ListeStyled>
       <li>
-        <a href={`/main/${username}`}><FaHouse/></a>
+        <a href={`/main/${username}`}>
+          <FaHouse />
+        </a>
       </li>
       <li>
-        <a href="/"><CiLogout/></a>
+        <a href="/">
+          <CiLogout />
+        </a>
       </li>
       <li>
         <a href={`/movies/${username}`}>Films</a>

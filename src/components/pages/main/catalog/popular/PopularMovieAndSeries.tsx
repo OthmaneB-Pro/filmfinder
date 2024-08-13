@@ -3,8 +3,11 @@ import CardPrimary from "../../../../reusable-ui/CardPrimary";
 import { useContext, useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../../api/moviedb";
 import { useNavigate } from "react-router-dom";
-import { FavoriteList } from "../../../../../context/FavoriteList";
-import { CarouselStyled, ScrollableContainer } from "../../../../reusable-styles/CardPrimaryStyles";
+import { FavoriteList } from "../../../../../context/UserContext";
+import {
+  CarouselStyled,
+  ScrollableContainer,
+} from "../../../../reusable-styles/CardPrimaryStyles";
 
 type PopularMovieType = {
   id: number;
@@ -48,4 +51,3 @@ export default function PopularMovieAndSeries() {
     </ScrollableContainer>
   );
 }
-
