@@ -4,22 +4,21 @@ export default function FooterMainPage() {
   return (
     <FooterStyled>
       <div className="contact">
+        <h2>Contactez-moi !</h2>
         <ul>
-          <h3>Contactez-moi !</h3>
           <li>Téléphone : 07 68 77 70 67</li>
           <li>
             Github : <a href="https://github.com/OthmaneB-Pro/">OthmaneB-Pro</a>
           </li>
           <li>
             Email :{" "}
-            <a href="mailto:othmane.baar@gmail.com"> othmane.baar@gmail.com</a>
+            <a href="mailto:othmane.baar@gmail.com">othmane.baar@gmail.com</a>
           </li>
         </ul>
       </div>
-      <hr />
       <div className="a-propos">
+        <h2>À propos de moi</h2>
         <p>
-          <h3>À propos de moi</h3>
           Je me présente, Othmane BAAR, développeur frontend spécialisé en React
           et TypeScript. Fort de mon expertise, je suis disponible pour des
           missions freelance en régie. N'hésitez pas à me contacter pour
@@ -36,17 +35,43 @@ const FooterStyled = styled.div`
   background-color: #25a3dd;
   color: white;
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  font-size: 22px;
+  grid-template-columns: 1fr 1fr ;
+  font-size: 18px;
   overflow: hidden;
   box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+
   .contact {
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 200px;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: 10px;
+        a {
+          color: #ffdd00;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
   .a-propos {
-    width: 500px;
     display: flex;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      max-width: 500px;
+      text-align: center;
+    }
+   
   }
 `;

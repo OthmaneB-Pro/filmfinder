@@ -27,7 +27,7 @@ const EmptyListStyled = styled.div`
   border-radius: 10px;
   border: 1px solid #25a3dd;
   font-size: 24px;
-  margin-bottom: 204px;
+  margin-bottom: 85px;
   position: relative;
   left: 152%;
   span {

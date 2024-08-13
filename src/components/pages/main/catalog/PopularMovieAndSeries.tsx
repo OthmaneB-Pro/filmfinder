@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import CardPrimary from "../../../reusable-ui/CardPrimary";
 import { useContext, useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../api/moviedb";
