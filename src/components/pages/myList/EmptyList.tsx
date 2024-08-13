@@ -33,9 +33,8 @@ const EmptyListStyled = styled.div`
   span {
     margin-bottom: 10px;
   }
-  @media (max-width: 1600px){
+  @media (max-width: 1600px) {
     left: 105%;
     margin-bottom: 20px;
   }
-
 `;
