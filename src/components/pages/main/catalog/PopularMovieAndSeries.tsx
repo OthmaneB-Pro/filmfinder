@@ -8,7 +8,7 @@ import {
   ScrollableContainer,
 } from "../../../reusable-styles/CardPrimaryStyles";
 
-type PopularMovieType = {
+export type PopularMovieType = {
   id: number;
   title: string;
   overview: string;
