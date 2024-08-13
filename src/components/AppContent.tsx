@@ -11,6 +11,7 @@ const [isFavorite, setIsFavorite] = useState<MovieAvailableType[]>([]);
 
   const onAddFavorite = async (item: MovieAvailableType) => {
     const updatedFavorites = [...isFavorite, item];
+    
     setIsFavorite(updatedFavorites);
     if (username) {
       await saveList(username, updatedFavorites);

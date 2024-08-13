@@ -17,12 +17,10 @@ export default function MyListMoviesAndSeries() {
   }
 
   useEffect(() => {
-    console.log("Username:", username);
     if (username) {
       const fetchFavorites = async () => {
         const listReceived = await getList(username);
         setIsFavorite(listReceived);
-        console.log("listReceived", listReceived);
       };
       fetchFavorites();
     }
