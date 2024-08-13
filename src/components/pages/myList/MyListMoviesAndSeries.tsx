@@ -6,15 +6,10 @@ import { getList } from "../../../api/list";
 import styled from "styled-components";
 
 export default function MyListMoviesAndSeries() {
-  const { isFavorite, setIsFavorite } = useContext(FavoriteList);
+  const { isFavorite, setIsFavorite , onDeleteFavorite} = useContext(FavoriteList);
   const { username } = useParams();
   const navigate = useNavigate();
 
-  const handleDelete = (idProduct : number) => {
-    const newFavorite = isFavorite.filter((product) => product.id !== idProduct)
-    setIsFavorite(newFavorite)
-    console.log(isFavorite)
-  }
 
   useEffect(() => {
     if (username) {
@@ -41,7 +36,7 @@ export default function MyListMoviesAndSeries() {
             }}
             onFavorite={() => {}}
             isInMyList={true}
-            onDelete={() => {handleDelete(item.id)}}
+            onDelete={() => {onDeleteFavorite(item.id)}}
 
           />
         ))}

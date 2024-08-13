@@ -7,6 +7,7 @@ type FavoriteListType = {
     onAddFavorite : (item: MovieAvailableType) => void;
     username : string;
     setUsername : React.Dispatch<React.SetStateAction<string>>;
+    onDeleteFavorite : (idProduct: number) => void;
 
 }
 
@@ -16,5 +17,6 @@ export const FavoriteList = createContext<FavoriteListType>({
     onAddFavorite : () => {},
     username : "",
     setUsername: () => {},
+    onDeleteFavorite : () => {},
     
 })
