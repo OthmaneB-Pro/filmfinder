@@ -41,7 +41,7 @@ export default function PopularMovieAndSeries() {
             label={popular.overview}
             date={popular.release_date}
             onClick={() => {
-              navigate(`/film/${popular.id}`);
+              navigate(`/details/${popular.id}`);
             }}
             onFavorite={() => onAddFavorite(popular)}
           />
