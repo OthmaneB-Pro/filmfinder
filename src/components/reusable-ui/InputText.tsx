@@ -9,7 +9,7 @@ type InputType = {
     required?: boolean;
 }
 
-export default function inputText({type, value, name, placeholder, onChange, required} : InputType) {
+export default function InputText({type, value, name, placeholder, onChange, required} : InputType) {
   return (
     <InputTextStyled>
       <input
