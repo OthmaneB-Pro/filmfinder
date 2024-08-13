@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TitleTextWithDivider from "../../../reusable-ui/TitleTextWithDivider";
-import Categories from "./categories/Categories";
-import PopularMovieAndSeries from "./popular/PopularMovieAndSeries";
+import Categories from "./Categories";
+import PopularMovieAndSeries from "./PopularMovieAndSeries";
 
 export default function CatalogMain() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MovieAvailableType } from "../components/pages/movies/MoviesAvailable";
-import { GenreType } from "../components/pages/main/catalog/categories/Categories";
+import { GenreType } from "../components/pages/main/catalog/Categories";
 import { deleteList, saveList } from "../api/list";
 
 export const useMoviesAndSeries = () => {

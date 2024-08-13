@@ -11,6 +11,7 @@ export default function CardCategories({
   href,
   image,
 }: CardCategoriesType) {
+  
   return (
     <CardCategoriesStyled>
       <div className="image">
