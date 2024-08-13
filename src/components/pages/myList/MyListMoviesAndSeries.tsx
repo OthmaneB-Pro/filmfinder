@@ -4,6 +4,7 @@ import CardPrimary from "../../reusable-ui/CardPrimary";
 import { useNavigate, useParams } from "react-router-dom";
 import { getList } from "../../../api/list";
 import styled from "styled-components";
+import EmptyList from "./EmptyList";
 
 export default function MyListMoviesAndSeries() {
   const { isFavorite, setIsFavorite , onDeleteFavorite} = useContext(FavoriteList);
@@ -24,6 +25,7 @@ export default function MyListMoviesAndSeries() {
   return (
     <ScrollableContainer>
       <MyListStyled>
+        {isFavorite.length ? "" : <EmptyList/>}
         {isFavorite.map((item) => (
           <CardPrimary
             key={item.id}
