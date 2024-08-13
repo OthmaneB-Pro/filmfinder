@@ -3,10 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableMovie } from "../../../api/moviedb";
-import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
-import { MoviesPageContext } from "../../../context/MoviesPageContext";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-import { FavoriteList } from "../../../context/FavoriteList";
+import { FavoriteList } from "../../../context/UserContext";
+import ButtonNextAndPrevious from "../../reusable-ui/ButtonNextAndPrevious";
 
 export type MovieAvailableType = {
   id: number;
@@ -20,7 +18,7 @@ export default function MoviesAvailable() {
   const [movieAvailable, setMovieAvailable] = useState<MovieAvailableType[]>(
     []
   );
-  const { page, setPage } = useContext(MoviesPageContext);
+  const { page } = useContext(FavoriteList);
   const { onAddFavorite } = useContext(FavoriteList);
   const navigate = useNavigate();
 
@@ -48,29 +46,7 @@ export default function MoviesAvailable() {
           onFavorite={() => onAddFavorite(available)}
         />
       ))}
-      <ButtonPrimary
-        label={<FaArrowCircleLeft />}
-        onClick={() => {
-          {
-            page === 1 ? setPage(page) : setPage(page - 1);
-          }
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-        className="button-next-page"
-      />
-
-      <ButtonPrimary
-        label={
-          <>
-            Page Suivante <FaArrowCircleRight />
-          </>
-        }
-        onClick={() => {
-          setPage(page + 1);
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-        className="button-next-page"
-      />
+      <ButtonNextAndPrevious />
     </AvailableStyled>
   );
 }
@@ -82,11 +58,6 @@ const AvailableStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  .button-next-page {
-    width: 180px;
-    margin-left: 40px;
-    margin-top: 20px;
-  }
   @media (max-width: 1400px) {
     grid-template-columns: repeat(3, 1fr);
   }

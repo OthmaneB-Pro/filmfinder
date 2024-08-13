@@ -18,8 +18,7 @@ const LoginPageStyle = styled.div`
   background-size: cover;
   overflow-y: hidden;
   background-color: #25a3dd;
-
-
+  
   .container {
     background: white;
     width: 65%;

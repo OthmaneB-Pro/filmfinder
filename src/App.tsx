@@ -5,7 +5,7 @@ import MainPage from "./components/pages/main/MainPage";
 import MoviesPage from "./components/pages/movies/MoviesPage";
 import SeriesPage from "./components/pages/series/SeriesPage";
 import MyList from "./components/pages/myList/MyList";
-import AppContent from "./components/AppContent"; // Importer AppContent
+import AppContent from "./components/AppContent"; 
 
 function App() {
   return (

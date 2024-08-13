@@ -27,15 +27,14 @@ const EmptyListStyled = styled.div`
   border-radius: 10px;
   border: 1px solid #25a3dd;
   font-size: 24px;
-  margin-bottom: 204px;
+  margin-bottom: 85px;
   position: relative;
   left: 152%;
   span {
     margin-bottom: 10px;
   }
-  @media (max-width: 1600px){
+  @media (max-width: 1600px) {
     left: 105%;
     margin-bottom: 20px;
   }
-
 `;

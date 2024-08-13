@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import CardCategories from "./CardCategories";
+import CardCategories from "../../../reusable-ui/CardCategories";
 import { useContext, useEffect } from "react";
-import { GetGenreMovie } from "../../../../../api/moviedb";
-import { MoviesContext } from "../../../../../context/MoviesContext";
+import { GetGenreMovie } from "../../../../api/moviedb";
+import { FavoriteList } from "../../../../context/UserContext";
 
 export type GenreType = {
   id: number;
@@ -11,7 +11,7 @@ export type GenreType = {
 };
 
 export default function Categories() {
-  const { movieGenre, setMovieGenre } = useContext(MoviesContext);
+  const { movieGenre, setMovieGenre } = useContext(FavoriteList);
 
   useEffect(() => {
     const loadGenres = async () => {

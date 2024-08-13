@@ -1,9 +1,12 @@
-import styled from "styled-components";
-import CardPrimary from "../../../../reusable-ui/CardPrimary";
+import CardPrimary from "../../../reusable-ui/CardPrimary";
 import { useContext, useEffect, useState } from "react";
-import { GetPopularMovie } from "../../../../../api/moviedb";
+import { GetPopularMovie } from "../../../../api/moviedb";
 import { useNavigate } from "react-router-dom";
-import { FavoriteList } from "../../../../../context/FavoriteList";
+import { FavoriteList } from "../../../../context/UserContext";
+import {
+  CarouselStyled,
+  ScrollableContainer,
+} from "../../../reusable-styles/CardPrimaryStyles";
 
 type PopularMovieType = {
   id: number;
@@ -29,7 +32,7 @@ export default function PopularMovieAndSeries() {
 
   return (
     <ScrollableContainer>
-      <PopularStyled>
+      <CarouselStyled>
         {moviePopular.map((popular) => (
           <CardPrimary
             key={popular.id}
@@ -43,28 +46,7 @@ export default function PopularMovieAndSeries() {
             onFavorite={() => onAddFavorite(popular)}
           />
         ))}
-      </PopularStyled>
+      </CarouselStyled>
     </ScrollableContainer>
   );
 }
-
-const ScrollableContainer = styled.div`
-  overflow-x: auto;
-  scrollbar-width: none;
-  display: flex;
-  padding-left: 130px;
-  margin-top: 50px;
-  width: calc(93% - 130px);
-`;
-
-const PopularStyled = styled.div`
-  margin-right: 50px;
-  margin-bottom: 150px;
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-column-gap: -10px;
-  & > div {
-    flex: 0 0 calc(100% / 6);
-    max-width: 300px;
-  }
-`;

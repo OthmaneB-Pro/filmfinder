@@ -1,16 +1,19 @@
 import { useContext, useEffect } from "react";
-import { FavoriteList } from "../../../context/FavoriteList";
+import { FavoriteList } from "../../../context/UserContext";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { useNavigate, useParams } from "react-router-dom";
 import { getList } from "../../../api/list";
-import styled from "styled-components";
 import EmptyList from "./EmptyList";
+import {
+  CarouselStyled,
+  ScrollableContainer,
+} from "../../reusable-styles/CardPrimaryStyles";
 
 export default function MyListMoviesAndSeries() {
-  const { isFavorite, setIsFavorite , onDeleteFavorite} = useContext(FavoriteList);
+  const { isFavorite, setIsFavorite, onDeleteFavorite } =
+    useContext(FavoriteList);
   const { username } = useParams();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (username) {
@@ -24,8 +27,8 @@ export default function MyListMoviesAndSeries() {
 
   return (
     <ScrollableContainer>
-      <MyListStyled>
-        {isFavorite.length ? "" : <EmptyList/>}
+      <CarouselStyled>
+        {isFavorite.length ? "" : <EmptyList />}
         {isFavorite.map((item) => (
           <CardPrimary
             key={item.id}
@@ -38,32 +41,12 @@ export default function MyListMoviesAndSeries() {
             }}
             onFavorite={() => {}}
             isInMyList={true}
-            onDelete={() => {onDeleteFavorite(item.id)}}
-
+            onDelete={() => {
+              onDeleteFavorite(item.id);
+            }}
           />
         ))}
-      </MyListStyled>
+      </CarouselStyled>
     </ScrollableContainer>
   );
 }
-
-const ScrollableContainer = styled.div`
-  overflow-x: auto;
-  scrollbar-width: none;
-  display: flex;
-  padding-left: 130px;
-  margin-top: 50px;
-  width: calc(93% - 130px);
-`;
-
-const MyListStyled = styled.div`
-  margin-right: 50px;
-  margin-bottom: 150px;
-  display: grid;
-  grid-template-columns: repeat(50, 1fr);
-  grid-column-gap: -10px;
-  & > div {
-    flex: 0 0 calc(100% / 6);
-    max-width: 300px;
-  }
-`;
