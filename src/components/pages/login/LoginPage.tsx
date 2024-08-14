@@ -36,6 +36,9 @@ const LoginPageStyle = styled.div`
   }
   @media (max-width: 1600px) {
     .container{
+      margin-left: 265px;
+      margin-top: 120px;
+      height: 75vh;
       width: 66%;
     }
   }
