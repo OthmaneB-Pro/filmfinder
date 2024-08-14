@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiKey } from "../../../../api/moviedb";
 import { PopularMovieType } from "../../main/catalog/PopularMovieAndSeries";
+import styled from "styled-components";
+import { NumberFloat } from "../../../../utils/math";
+import LoadingPage from "./LoadingPage";
 
 export default function DetailsPage() {
   const { id } = useParams();
@@ -21,6 +24,7 @@ export default function DetailsPage() {
           }
         );
         setMovie(response.data);
+        console.log(movie)
       } catch (error) {
         console.error(error);
       }
@@ -29,15 +33,41 @@ export default function DetailsPage() {
   }, [id]);
 
   return (
-    <div> 
+    <div>
       {movie ? (
-      <div>
-        <h1>{movie.title}</h1>
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`Affiche du film : ${movie.title}` } />
-        <p>{movie.overview}</p>
-        <h4>{movie.release_date}</h4>
-        
-      </div>
-      ) : "Chargement... Faire un Composant après"}</div>
+        <DetailsStyled>
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={`Affiche du film : ${movie.title}`}
+            />
+          </div>
+          <div>
+            <h1>{movie.title}</h1>
+            <h4>Date de sortie : {movie.release_date}</h4>
+            <h4>Status : {movie.status}</h4>
+            <p><strong>Résumé :</strong><br/>{movie.overview}</p>
+            <h4>Note : {NumberFloat(movie.vote_average)}/10</h4>
+            <h4>Nombre de vote : {movie.vote_count}</h4>
+          </div>
+        </DetailsStyled>
+      ) : (
+        <LoadingPage/>
+      )}
+    </div>
   );
 }
+
+const DetailsStyled = styled.div`
+  margin-left: 30px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  img {
+    width: 300px;
+  }
+  p{
+    width: 750px;
+    text-align: justify;
+  }
+`;
