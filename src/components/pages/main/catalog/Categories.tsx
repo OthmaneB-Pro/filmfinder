@@ -3,6 +3,7 @@ import CardCategories from "../../../reusable-ui/CardCategories";
 import { useContext, useEffect } from "react";
 import { GetGenreMovie } from "../../../../api/moviedb";
 import { FavoriteList } from "../../../../context/UserContext";
+import { useParams } from "react-router-dom";
 
 export type GenreType = {
   id: number;
@@ -12,6 +13,7 @@ export type GenreType = {
 
 export default function Categories() {
   const { movieGenre, setMovieGenre } = useContext(FavoriteList);
+  const {username} = useParams()
 
   useEffect(() => {
     const loadGenres = async () => {
@@ -33,7 +35,7 @@ export default function Categories() {
             key={genre.id}
             label={genre.name}
             image={genre.image}
-            href={`/genre/${genre.name}`}
+            href={`/genres/${username}`}
           />
         ))}
       </CategoriesStyled>
