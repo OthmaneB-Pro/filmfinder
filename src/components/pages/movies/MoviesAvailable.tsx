@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableMovie } from "../../../api/moviedb";
 import { FavoriteList } from "../../../context/UserContext";
@@ -20,6 +20,7 @@ export default function MoviesAvailable() {
   );
   const { page } = useContext(FavoriteList);
   const { onAddFavorite } = useContext(FavoriteList);
+  const {username} = useParams()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function MoviesAvailable() {
           label={available.overview}
           date={available.release_date}
           onClick={() => {
-            navigate(`/${available.id}`);
+            navigate(`/details/${username}/${available.id}`);
           }}
           onFavorite={() => onAddFavorite(available)}
         />

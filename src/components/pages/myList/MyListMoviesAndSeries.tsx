@@ -37,7 +37,7 @@ export default function MyListMoviesAndSeries() {
             date={item.release_date}
             image={item.poster_path}
             onClick={() => {
-              navigate(`/${item.title}`);
+              navigate(`/details/${username}/${item.id}`);
             }}
             onFavorite={() => {}}
             isInMyList={true}

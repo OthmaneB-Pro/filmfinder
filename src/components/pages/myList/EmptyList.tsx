@@ -6,13 +6,10 @@ export default function EmptyList() {
   const { username } = useParams();
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/main/${username}`);
-  };
   return (
     <EmptyListStyled>
       <span>Votre liste est vide...</span>
-      <ButtonPrimary label={"Revenir à l'accueil"} onClick={handleClick} />
+      <ButtonPrimary label={"Revenir à l'accueil"} onClick={() =>  navigate(`/main/${username}`)} />
     </EmptyListStyled>
   );
 }
