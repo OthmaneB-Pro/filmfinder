@@ -75,4 +75,22 @@ export const GetAvailableSerie = async (page: number) => {
   }
 };
 
+export const GetMovieById = async (id : string) => {
+  try {
+    const res = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}`,
+      {
+        params: {
+          api_key: apiKey,
+          language: "fr-FR",
+        },
+      }
+    );
+    return res.data ;
+    
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
 export { apiKey };

@@ -1,7 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { apiKey } from "../../../../api/moviedb";
+import { GetMovieById } from "../../../../api/moviedb";
 import { PopularMovieType } from "../../main/catalog/PopularMovieAndSeries";
 import styled from "styled-components";
 import { NumberFloat } from "../../../../utils/math";
@@ -14,23 +13,11 @@ export default function DetailsPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const GetMovieById = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}`,
-          {
-            params: {
-              api_key: apiKey,
-              language: "fr-FR",
-            },
-          }
-        );
-        setMovie(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    GetMovieById();
+    const loader = async () => {
+    const isGood = await GetMovieById(id as string);
+    setMovie(isGood);
+    }
+    loader()
   }, [id]);
 
   return (
