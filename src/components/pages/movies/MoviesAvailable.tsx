@@ -18,8 +18,7 @@ export default function MoviesAvailable() {
   const [movieAvailable, setMovieAvailable] = useState<MovieAvailableType[]>(
     []
   );
-  const { page } = useContext(FavoriteList);
-  const { onAddFavorite } = useContext(FavoriteList);
+  const { page, onAddFavorite } = useContext(FavoriteList);
   const {username} = useParams()
   const navigate = useNavigate();
 

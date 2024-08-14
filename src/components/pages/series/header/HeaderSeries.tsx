@@ -8,7 +8,7 @@ export default function HeaderSeries() {
     <HeaderSeriesStyled>
       <Logo className="logo" />
       <Navbar />
-      <TitleTextWithDivider label="Liste des Series disponibles" />
+      <TitleTextWithDivider label="Liste des Series - Pas encore disponible -" />
     </HeaderSeriesStyled>
   );
 }

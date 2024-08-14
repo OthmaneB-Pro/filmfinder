@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
 import ButtonNextAndPrevious from "../../reusable-ui/ButtonNextAndPrevious";
@@ -19,6 +19,7 @@ export default function SeriesAvailable() {
     []
   );
   const { page } = useContext(FavoriteList);
+  const {username} = useParams()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function SeriesAvailable() {
           label={available.overview}
           date={available.first_air_date}
           onClick={() => {
-            navigate(`/${available.original_name}`);
+            navigate(`/details/${username}/${available.id}`);
           }}
           onFavorite={() => {}}
         />
