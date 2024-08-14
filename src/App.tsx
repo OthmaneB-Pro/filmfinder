@@ -7,6 +7,7 @@ import SeriesPage from "./components/pages/series/SeriesPage";
 import MyList from "./components/pages/myList/MyList";
 import AppContent from "./components/AppContent"; 
 import DetailsMain from "./components/pages/detailsMoviesAndSeries/DetailsMain";
+import GenresMoviesPage from "./components/pages/genresMovies/GenresMoviesPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/series/:username" element={<SeriesPage />} />
           <Route path="/myList/:username" element={<MyList />} />
           <Route path="/details/:username/:id" element={<DetailsMain/>} />
+          <Route path="/genres/:genre/:username" element={<GenresMoviesPage/>} />
         </Routes>
       </AppContent>
     </BrowserRouter>

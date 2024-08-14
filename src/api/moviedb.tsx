@@ -93,4 +93,23 @@ export const GetMovieById = async (id : string) => {
     throw err;
   }
 };
+
+export const GetMoviesByGenre = async (genreId: string) => {
+  try {
+    const res = await axios.get(
+      `https://api.themoviedb.org/3/discover/movie`,
+      {
+        params: {
+          api_key: apiKey,
+          language: 'fr-FR',
+          with_genres: genreId,  
+        },
+      }
+    );
+    return res.data.results;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
 export { apiKey };

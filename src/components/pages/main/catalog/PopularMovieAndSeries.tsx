@@ -17,6 +17,7 @@ export type PopularMovieType = {
   status: string;
   vote_average: number;
   vote_count: number;
+  genres : string;
 };
 
 export default function PopularMovieAndSeries() {
