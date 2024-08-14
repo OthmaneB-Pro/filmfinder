@@ -8,7 +8,7 @@ export default function HeaderDetails() {
     <HeaderStyled>
       <Logo className="logo" />
       <Navbar />
-      <TitleTextWithDivider label={"- -"} />
+      <TitleTextWithDivider label={"- Détails -"}/>
     </HeaderStyled>
   );
 }

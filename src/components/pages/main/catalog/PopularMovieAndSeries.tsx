@@ -14,6 +14,9 @@ export type PopularMovieType = {
   overview: string;
   release_date: string;
   poster_path: string;
+  status: string;
+  vote_average: number;
+  vote_count: number;
 };
 
 export default function PopularMovieAndSeries() {
