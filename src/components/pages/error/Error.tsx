@@ -5,17 +5,13 @@ import styled from "styled-components";
 export default function Error() {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/");
-  };
-
   return (
     <BackgroundStyled>
       <div className="filmFinder">FilmFinder</div>
       <ErrorStyled>
         <span>404 Erreur</span>
         <span> La page que vous recherchez est indisponible...</span>
-        <ButtonPrimary label={"Retourner à l'accueil"} onClick={handleClick} />
+        <ButtonPrimary label={"Retourner à l'accueil"} onClick={() => navigate("/")} />
       </ErrorStyled>
     </BackgroundStyled>
   );

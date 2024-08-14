@@ -13,10 +13,6 @@ export default function DetailsPage() {
   const [movie, setMovie] = useState<PopularMovieType | null>(null);
   const navigate = useNavigate()
 
-  const handleClick = () => {
-    navigate(`/main/${username}`)
-  }
-
   useEffect(() => {
     const GetMovieById = async () => {
       try {
@@ -54,7 +50,7 @@ export default function DetailsPage() {
             <p><strong>Résumé :</strong><br/>{movie.overview}</p>
             <h4>Note : {NumberFloat(movie.vote_average)}/10</h4>
             <h4>Nombre de vote : {movie.vote_count}</h4>
-            <ButtonPrimary label={"Revenir à l'accueil"} onClick={handleClick}/>
+            <ButtonPrimary label={"Revenir à l'accueil"} onClick={() => navigate(`/main/${username}`)}/>
           </div>
         </DetailsStyled>
       ) : (
