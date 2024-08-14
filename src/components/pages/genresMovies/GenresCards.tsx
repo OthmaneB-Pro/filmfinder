@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { GetMoviesByGenre } from "../../../api/moviedb";
 import { PopularMovieType } from "../main/catalog/PopularMovieAndSeries";
 import CardPrimary from "../../reusable-ui/CardPrimary";
@@ -7,19 +7,23 @@ import {
   CarouselStyled,
   ScrollableContainer,
 } from "../../reusable-styles/CardPrimaryStyles";
+import { FavoriteList } from "../../../context/UserContext";
 
 export default function GenresCards() {
-  const { genre } = useParams();
+  const { genre, username } = useParams();
+  const {onAddFavorite} = useContext(FavoriteList)
+  const navigate = useNavigate()
   const [genreMovie, setGenreMovie] = useState<PopularMovieType[]>([]);
 
   useEffect(() => {
-    const loadPopular = async () => {
-      const populars = await GetMoviesByGenre(genre as string);
-      setGenreMovie(populars);
+    const loadGenre = async () => {
+      const genres = await GetMoviesByGenre(genre as string);
+      setGenreMovie(genres);
     };
 
-    loadPopular();
+    loadGenre();
   }, [setGenreMovie]);
+
   return (
     <ScrollableContainer>
       <CarouselStyled>
@@ -30,8 +34,8 @@ export default function GenresCards() {
             image={genre.poster_path}
             label={genre.overview}
             date={genre.release_date}
-            onClick={() => {}}
-            onFavorite={() => {}}
+            onClick={() => {navigate(`/details/${username}/${genre.id}`)}}
+            onFavorite={() => {onAddFavorite(genre)}}
           />
         ))}
       </CarouselStyled>
