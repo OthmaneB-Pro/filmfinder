@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import { useContext, useEffect } from "react";
 import { FavoriteList } from "../../context/UserContext";
+import { FaSearch } from "react-icons/fa";
 
 export default function Navbar() {
   const { username, setUsername } = useContext(FavoriteList);
@@ -37,7 +38,9 @@ export default function Navbar() {
       <li>
         <a href={`/myList/${username}`}>Votre liste : {username}</a>
       </li>
-      <SearchButton />
+      <li>
+        <a href={`/search/${username}`}><FaSearch /> Recherche</a>
+      </li>
     </ListeStyled>
   );
 }

@@ -112,4 +112,23 @@ export const GetMoviesByGenre = async (genreId: string) => {
     throw err;
   }
 };
+
+export const searchMoviesByTitle = async (name: string) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie`,
+      {
+        params: {
+          api_key: apiKey,
+          name: name,  
+          language: 'fr-FR',
+        },
+      }
+    );
+    return response.data.results;  
+  } catch (error) {
+    console.error('Error fetching movie search results:', error);
+    throw error;
+  }
+};
 export { apiKey };

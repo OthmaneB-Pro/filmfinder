@@ -8,6 +8,7 @@ import MyList from "./components/pages/myList/MyList";
 import AppContent from "./components/AppContent"; 
 import DetailsMain from "./components/pages/detailsMoviesAndSeries/DetailsMain";
 import GenresMoviesPage from "./components/pages/genresMovies/GenresMoviesPage";
+import SearchButtonPage from "./components/pages/searchButton/SearchButtonPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/myList/:username" element={<MyList />} />
           <Route path="/details/:username/:id" element={<DetailsMain/>} />
           <Route path="/genres/:genre/:username" element={<GenresMoviesPage/>} />
+          <Route path="/search/:username" element={<SearchButtonPage/>} />
+
         </Routes>
       </AppContent>
     </BrowserRouter>
