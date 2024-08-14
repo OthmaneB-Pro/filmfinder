@@ -43,4 +43,11 @@ const ButtonNexTAndPreviousStyled = styled.div`
     margin-left: 40px;
     margin-top: 20px;
   }
+  @media (max-width: 1550px) {
+    .button-next-page {
+    position : relative;
+    top: 700px;
+    right: 470px;
+  }
+  }
 `;

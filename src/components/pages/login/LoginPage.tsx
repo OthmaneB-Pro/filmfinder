@@ -34,4 +34,12 @@ const LoginPageStyle = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
   }
+  @media (max-width: 1600px) {
+    .container{
+      margin-left: 265px;
+      margin-top: 120px;
+      height: 75vh;
+      width: 66%;
+    }
+  }
 `;

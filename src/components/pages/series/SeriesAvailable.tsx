@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CardPrimary from "../../reusable-ui/CardPrimary";
 import { GetAvailableSerie } from "../../../api/moviedb";
 import ButtonNextAndPrevious from "../../reusable-ui/ButtonNextAndPrevious";
@@ -19,6 +19,7 @@ export default function SeriesAvailable() {
     []
   );
   const { page } = useContext(FavoriteList);
+  const {username} = useParams()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function SeriesAvailable() {
           label={available.overview}
           date={available.first_air_date}
           onClick={() => {
-            navigate(`/${available.original_name}`);
+            navigate(`/details/${username}/${available.id}`);
           }}
           onFavorite={() => {}}
         />
@@ -58,15 +59,10 @@ const AvailableStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  .button-page {
-    width: 180px;
-    margin-left: 40px;
-    margin-top: 20px;
-  }
-  @media (max-width: 1400px) {
+  @media (max-width: 1550px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

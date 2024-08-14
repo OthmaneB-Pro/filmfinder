@@ -63,4 +63,7 @@ const FormulaireStyled = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans";
+  @media (max-width: 1600px) {
+    margin-right: 15px;
+  }
 `;
