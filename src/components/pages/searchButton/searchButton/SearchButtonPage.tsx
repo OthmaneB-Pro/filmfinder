@@ -1,20 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import { searchMoviesByTitle } from "../../../api/moviedb"; // Assurez-vous que le chemin est correct
-import { PopularMovieType } from "../main/catalog/PopularMovieAndSeries";
-import CardPrimary from "../../reusable-ui/CardPrimary";
+import { useState, useEffect, useContext } from "react";
+import { searchMoviesByTitle } from "../../../../api/moviedb"; // Assurez-vous que le chemin est correct
+import { PopularMovieType } from "../../main/catalog/PopularMovieAndSeries";
+import CardPrimary from "../../../reusable-ui/CardPrimary";
 import {
   CarouselStyled,
   ScrollableContainer,
-} from "../../reusable-styles/CardPrimaryStyles";
+} from "../../../reusable-styles/CardPrimaryStyles";
 import { useNavigate, useParams } from "react-router-dom";
-import { FavoriteList } from "../../../context/UserContext";
+import { FavoriteList } from "../../../../context/UserContext";
+import SearchInputButton from "./SearchInputButton";
 
 export default function SearchButtonPage() {
   const { username } = useParams();
   const { onAddFavorite } = useContext(FavoriteList);
   const [name, setName] = useState<string>("");
   const [results, setResults] = useState<PopularMovieType[]>([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -34,19 +35,14 @@ export default function SearchButtonPage() {
 
     const debounce = setTimeout(() => {
       fetchResults();
-    }, 500); 
+    }, 500);
 
-    return () => clearTimeout(debounce); 
+    return () => clearTimeout(debounce);
   }, [name]);
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Rechercher un film..."
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <SearchInputButton name={name} setName={setName} /> 
 
       <ScrollableContainer>
         <CarouselStyled>
