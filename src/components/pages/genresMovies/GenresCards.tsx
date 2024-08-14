@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import { GetMoviesByGenre } from "../../../api/moviedb";
 import { PopularMovieType } from "../main/catalog/PopularMovieAndSeries";
 import CardPrimary from "../../reusable-ui/CardPrimary";
+import {
+  CarouselStyled,
+  ScrollableContainer,
+} from "../../reusable-styles/CardPrimaryStyles";
 
 export default function GenresCards() {
   const { genre } = useParams();
@@ -17,18 +21,20 @@ export default function GenresCards() {
     loadPopular();
   }, [setGenreMovie]);
   return (
-    <div>
-      {genreMovie.map((genre) => (
-        <CardPrimary
-          key={genre.id}
-          title={genre.title}
-          image={genre.poster_path}
-          label={genre.overview}
-          date={genre.release_date}
-          onClick={() => {}}
-          onFavorite={() => {}}
-        />
-      ))}
-    </div>
+    <ScrollableContainer>
+      <CarouselStyled>
+        {genreMovie.map((genre) => (
+          <CardPrimary
+            key={genre.id}
+            title={genre.title}
+            image={genre.poster_path}
+            label={genre.overview}
+            date={genre.release_date}
+            onClick={() => {}}
+            onFavorite={() => {}}
+          />
+        ))}
+      </CarouselStyled>
+    </ScrollableContainer>
   );
 }
