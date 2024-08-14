@@ -1,62 +1,29 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GetMovieById } from "../../../../api/moviedb";
 import { PopularMovieType } from "../../main/catalog/PopularMovieAndSeries";
-import styled from "styled-components";
-import { NumberFloat } from "../../../../utils/math";
 import LoadingPage from "./LoadingPage";
-import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
+import MovieDetails from "./MovieDetails";
 
 export default function DetailsPage() {
   const { id, username } = useParams();
   const [movie, setMovie] = useState<PopularMovieType | null>(null);
-  const navigate = useNavigate()
 
   useEffect(() => {
     const loader = async () => {
-    const isGood = await GetMovieById(id as string);
-    setMovie(isGood);
-    }
-    loader()
+      const isGood = await GetMovieById(id as string);
+      setMovie(isGood);
+    };
+    loader();
   }, [id]);
 
   return (
     <div>
       {movie ? (
-        <DetailsStyled>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={`Affiche du film : ${movie.title}`}
-            />
-          </div>
-          <div>
-            <h1>{movie.title}</h1>
-            <h4>Date de sortie : {movie.release_date}</h4>
-            <h4>Status : {movie.status}</h4>
-            <p><strong>Résumé :</strong><br/>{movie.overview}</p>
-            <h4>Note : {NumberFloat(movie.vote_average)}/10</h4>
-            <h4>Nombre de vote : {movie.vote_count}</h4>
-            <ButtonPrimary label={"Revenir à l'accueil"} onClick={() => navigate(`/main/${username}`)}/>
-          </div>
-        </DetailsStyled>
+        <MovieDetails movie={movie} username={username} />
       ) : (
-        <LoadingPage/>
+        <LoadingPage />
       )}
     </div>
   );
 }
-
-const DetailsStyled = styled.div`
-  margin-left: 30px;
-  margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  img {
-    width: 300px;
-  }
-  p{
-    width: 750px;
-    text-align: justify;
-  }
-`;
