@@ -18,7 +18,7 @@ export default function DetailsPage() {
   }
 
   useEffect(() => {
-    const fetchMovieById = async () => {
+    const GetMovieById = async () => {
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${id}`,
@@ -30,13 +30,11 @@ export default function DetailsPage() {
           }
         );
         setMovie(response.data);
-        console.log(movie)
       } catch (error) {
         console.error(error);
       }
     };
-    console.log(movie)
-    fetchMovieById();
+    GetMovieById();
   }, [id]);
 
   return (
