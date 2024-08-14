@@ -120,7 +120,7 @@ export const searchMoviesByTitle = async (name: string) => {
       {
         params: {
           api_key: apiKey,
-          name: name,  
+          query: name,  
           language: 'fr-FR',
         },
       }

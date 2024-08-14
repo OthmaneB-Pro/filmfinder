@@ -24,7 +24,6 @@ function App() {
           <Route path="/details/:username/:id" element={<DetailsMain/>} />
           <Route path="/genres/:genre/:username" element={<GenresMoviesPage/>} />
           <Route path="/search/:username" element={<SearchButtonPage/>} />
-
         </Routes>
       </AppContent>
     </BrowserRouter>

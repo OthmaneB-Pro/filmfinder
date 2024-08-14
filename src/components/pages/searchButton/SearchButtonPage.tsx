@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { searchMoviesByTitle } from '../../../api/moviedb'; // Assurez-vous que le chemin est correct
 import { PopularMovieType } from '../main/catalog/PopularMovieAndSeries';
 import CardPrimary from '../../reusable-ui/CardPrimary';
@@ -6,35 +6,39 @@ import CardPrimary from '../../reusable-ui/CardPrimary';
 export default function SearchButtonPage() {
   const [name, setName] = useState<string>('');
   const [results, setResults] = useState<PopularMovieType[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (name.trim() === '') return;
+  useEffect(() => {
+    const fetchResults = async () => {
+      if (name.trim() === '') {
+        setResults([]); 
+        return;
+      }
 
-    setLoading(true);
-    try {
-      const searchResults = await searchMoviesByTitle(name);
-      setResults(searchResults);
-    } catch (error) {
-      console.error('Search failed:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+      try {
+        const searchResults = await searchMoviesByTitle(name);
+        setResults(searchResults);
+        console.log(results)
+      } catch (error) {
+        console.error('Search failed:', error);
+      }
+    };
+
+    const debounce = setTimeout(() => {
+      fetchResults();
+    }, 500); // Ajout d'un délai pour éviter de faire trop de requêtes
+
+    return () => clearTimeout(debounce); // Nettoie le timeout si `name` change
+  }, [name]);
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Rechercher un film..."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button type="submit">Rechercher</button>
-      </form>
-      {loading && <p>Chargement...</p>}
+      <input
+        type="text"
+        placeholder="Rechercher un film..."
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
       <div>
         {results.map((movie) => (
           <CardPrimary
@@ -50,6 +54,4 @@ export default function SearchButtonPage() {
       </div>
     </div>
   );
-};
-
-
+}
