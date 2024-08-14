@@ -35,7 +35,7 @@ export default function Categories() {
             key={genre.id}
             label={genre.name}
             image={genre.image}
-            href={`/genres/${username}`}
+            href={`/genres/${genre.name}/${username}`}
           />
         ))}
       </CategoriesStyled>

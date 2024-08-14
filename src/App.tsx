@@ -21,7 +21,7 @@ function App() {
           <Route path="/series/:username" element={<SeriesPage />} />
           <Route path="/myList/:username" element={<MyList />} />
           <Route path="/details/:username/:id" element={<DetailsMain/>} />
-          <Route path="/genres/:username" element={<GenresMoviesPage/>} />
+          <Route path="/genres/:genre/:username" element={<GenresMoviesPage/>} />
         </Routes>
       </AppContent>
     </BrowserRouter>
