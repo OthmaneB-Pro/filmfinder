@@ -4,7 +4,6 @@ import TitleTextWithDivider from "../../../reusable-ui/TitleTextWithDivider";
 import styled from "styled-components";
 
 export default function HeaderGenres() {
-
   return (
     <HeaderGenresStyled>
       <Logo className="logo" />
