@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { searchMoviesByTitle } from "../../../../api/moviedb";
 import { PopularMovieType } from "../../main/catalog/PopularMovieAndSeries";
 import SearchInputButton from "./SearchInputButton";
-import SearchResults from "./SearchResults"; // Importez le nouveau composant
+import SearchResults from "./SearchResults"; 
 import styled from "styled-components";
 
 export default function SearchButtonPage() {
