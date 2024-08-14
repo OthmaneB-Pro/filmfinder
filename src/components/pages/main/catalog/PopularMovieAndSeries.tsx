@@ -1,7 +1,7 @@
 import CardPrimary from "../../../reusable-ui/CardPrimary";
 import { useContext, useEffect, useState } from "react";
 import { GetPopularMovie } from "../../../../api/moviedb";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FavoriteList } from "../../../../context/UserContext";
 import {
   CarouselStyled,
@@ -22,6 +22,7 @@ export type PopularMovieType = {
 export default function PopularMovieAndSeries() {
   const [moviePopular, setMoviePopular] = useState<PopularMovieType[]>([]);
   const navigate = useNavigate();
+  const {username} = useParams()
   const { onAddFavorite } = useContext(FavoriteList);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function PopularMovieAndSeries() {
             label={popular.overview}
             date={popular.release_date}
             onClick={() => {
-              navigate(`/details/${popular.id}`);
+              navigate(`/details/${username}/${popular.id}`);
             }}
             onFavorite={() => onAddFavorite(popular)}
           />

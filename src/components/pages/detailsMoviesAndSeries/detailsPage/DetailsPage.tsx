@@ -1,15 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { apiKey } from "../../../../api/moviedb";
 import { PopularMovieType } from "../../main/catalog/PopularMovieAndSeries";
 import styled from "styled-components";
 import { NumberFloat } from "../../../../utils/math";
 import LoadingPage from "./LoadingPage";
+import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 
 export default function DetailsPage() {
-  const { id } = useParams();
+  const { id, username } = useParams();
   const [movie, setMovie] = useState<PopularMovieType | null>(null);
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/main/${username}`)
+  }
 
   useEffect(() => {
     const fetchMovieById = async () => {
@@ -29,6 +35,7 @@ export default function DetailsPage() {
         console.error(error);
       }
     };
+    console.log(movie)
     fetchMovieById();
   }, [id]);
 
@@ -49,6 +56,7 @@ export default function DetailsPage() {
             <p><strong>Résumé :</strong><br/>{movie.overview}</p>
             <h4>Note : {NumberFloat(movie.vote_average)}/10</h4>
             <h4>Nombre de vote : {movie.vote_count}</h4>
+            <ButtonPrimary label={"Revenir à l'accueil"} onClick={handleClick}/>
           </div>
         </DetailsStyled>
       ) : (
