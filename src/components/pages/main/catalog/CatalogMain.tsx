@@ -10,7 +10,7 @@ export default function CatalogMain() {
       <Categories />
       <TitleTextWithDivider
         className="popular-movies-and-series"
-        label="- Films et Séries Populaire -"
+        label="- Films et Séries Populaires -"
       />
       <PopularMovieAndSeries />
     </CatalogStyled>
