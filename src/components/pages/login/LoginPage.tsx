@@ -17,8 +17,10 @@ const LoginPageStyle = styled.div`
   height: 100vh;
   background-size: cover;
   overflow-y: hidden;
+  background: linear-gradient(rgba(45, 44, 44, 0.2), rgba(45, 44, 44, 0.2)), #25a3dd;
+  background-blend-mode: darken;
   background-color: #25a3dd;
-  
+
   .container {
     background: white;
     width: 65%;
@@ -35,7 +37,7 @@ const LoginPageStyle = styled.div`
     grid-template-columns: 2fr 1fr;
   }
   @media (max-width: 1600px) {
-    .container{
+    .container {
       margin-left: 265px;
       margin-top: 120px;
       height: 75vh;
