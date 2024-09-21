@@ -44,11 +44,11 @@ L'application sera accessible à l'adresse : `http://localhost:3000`.
 - **/components** : Composants React utilisés dans l'application.
 
 ## Capture d'écran de l'interface utilisateur
-![Capture d'écran - Page d'accueil](./film.png)
+![Capture d'écran - Page d'accueil](./film.PNG)
 
-![Capture d'écran - Page de recherche](./film2.png)
+![Capture d'écran - Page de recherche](./film2.PNG)
 
-![Capture d'écran - Détails du film](./film3.png)
+![Capture d'écran - Détails du film](./film3.PNG)
 
 ## Résultat
 FilmFinder est une application conviviale et réactive qui permet aux utilisateurs de découvrir les derniers films avec facilité et de gérer leurs favoris. Son design responsive garantit une expérience fluide sur tous les types d'appareils.
