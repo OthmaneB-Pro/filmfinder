@@ -44,11 +44,11 @@ L'application sera accessible à l'adresse : `http://localhost:3000`.
 - **/components** : Composants React utilisés dans l'application.
 
 ## Capture d'écran de l'interface utilisateur
-![Capture d'écran - Page d'accueil](./docs/img/film.PNG)
+![Capture d'écran - Page d'accueil](https://github.com/OthmaneB-Pro/filmfinder/raw/main/public/img/film.PNG)
 
-![Capture d'écran - Page de recherche](./docs/img/film2.PNG)
+![Capture d'écran - Page de recherche](https://github.com/OthmaneB-Pro/filmfinder/raw/main/public/img/film2.PNG)
 
-![Capture d'écran - Détails du film](./docs/img/film3.PNG)
+![Capture d'écran - Détails du film](https://github.com/OthmaneB-Pro/filmfinder/raw/main/public/img/film3.PNG)
 
 ## Résultat
 FilmFinder est une application conviviale et réactive qui permet aux utilisateurs de découvrir les derniers films avec facilité et de gérer leurs favoris. Son design responsive garantit une expérience fluide sur tous les types d'appareils.
